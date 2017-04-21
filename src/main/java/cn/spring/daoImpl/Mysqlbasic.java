@@ -2,7 +2,6 @@ package cn.spring.daoImpl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class Mysqlbasic {
     private static final String DBURL = "jdbc:mysql://localhost:3306/db_jnshu_follow";
