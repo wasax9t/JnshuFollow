@@ -14,12 +14,12 @@ public interface StudentDAO {
 	
 	/*
 	 * 根据ID查询学生数据
-	 * @return TODO String应改为student对象
+	 * @return 暂为name,more_info,periods,city,field的一个字符串数组
 	 */
-	public String findStuByID(long aID);
+	public String[] findStuByID(long aID);
 	
 	/*
-	 * 根据ID更新学生数据
+	 * 根据ID更新学生数据，将使用正则判断需更新的信息（未实现）
 	 */
-	public boolean updateStuByID(String[] args);
+	public boolean updateStuByID(long ID,String[] args);
 }
