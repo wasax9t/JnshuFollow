@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
-import cn.spring.daoImpl.StuDAOImpl;
+import cn.yxy.daoImpl.StuDAOImpl;
 
 public class SDItest {
 		@Test

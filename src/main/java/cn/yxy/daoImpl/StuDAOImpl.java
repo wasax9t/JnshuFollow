@@ -1,9 +1,9 @@
-package cn.spring.daoImpl;
+package cn.yxy.daoImpl;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import cn.spring.dao.StudentDAO;
+import cn.yxy.dao.StudentDAO;
 
 public class StuDAOImpl implements StudentDAO {
 

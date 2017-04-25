@@ -1,4 +1,4 @@
-package cn.spring.dao;
+package cn.yxy.dao;
 
 public interface ListDAO {
 	

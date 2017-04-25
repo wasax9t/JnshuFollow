@@ -3,7 +3,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import cn.spring.daoImpl.Mysqlbasic;
+import cn.yxy.daoImpl.Mysqlbasic;
 
 
 public class SbT {
