@@ -4,12 +4,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import cn.yxy.dao.StudentDAO;
+import cn.yxy.data_object.StudentDO;
 
 public class StuDAOImpl implements StudentDAO {
 
-	public long addStu(String[] args) {
+	public long insert(StudentDO stu) {
 		long temp=0;
-		Mysqlbasic mb=new Mysqlbasic();
+		MySQLUnit mb=new MySQLUnit();
 		if(mb.initConn()){
 			Statement stmt=null;
 	        String insertString="INSERT INTO student"
@@ -29,9 +30,9 @@ public class StuDAOImpl implements StudentDAO {
 		return temp;
 	}
 
-	public boolean delStuByID(long ID) {
+	public boolean deleteByID(long ID) {
 		boolean TorF=false;
-		Mysqlbasic mb=new Mysqlbasic();
+		MySQLUnit mb=new MySQLUnit();
 		if(mb.initConn()){
 			Statement stmt=null;
 	        String deleteString="DELETE FROM student WHERE "+"ID="+ID;
@@ -49,24 +50,21 @@ public class StuDAOImpl implements StudentDAO {
 		return TorF;
 	}
 
-	public String[] findStuByID(long ID) {
-		Mysqlbasic mb=new Mysqlbasic();
-		String[] strs = null;
+	public StudentDO getByID(long ID) {
+		MySQLUnit mb=new MySQLUnit();
+		StudentDO stu=null;
 		if(mb.initConn()){
 			Statement stmt=null;
 			ResultSet rset=null;
+			
 			
 	        String findString="SELECT name,more_info,periods,city,field FROM student WHERE ID="+ID;
 	        try{
 	        	stmt=mb.conn.createStatement();
 	            rset=stmt.executeQuery(findString);
-	            strs=new String[5];
+	            stu = new StudentDO();
 	    		while(rset.next()){
-	    			strs[0]=rset.getString("name");
-		    		strs[1]=rset.getString("more_info");
-		    		strs[2]=rset.getString("periods");
-		    		strs[3]=rset.getString("city");
-		    		strs[4]=rset.getString("field");
+	    			//TODO stu
 	    		}
 	            System.out.println("stmt executed,rset");
 	            stmt.close();
@@ -76,15 +74,14 @@ public class StuDAOImpl implements StudentDAO {
 	        }
 		}
 		mb.closeConn();
-		System.out.println(strs[0]);
-		return strs;
+		return stu;
 	}
 
-	public boolean updateStuByID(long ID,String[] args) {
+	public boolean updateByID(long ID,StudentDO stu) {
 		boolean TorF=false;
-		Mysqlbasic mb=new Mysqlbasic();
+		MySQLUnit mb=new MySQLUnit();
 		String h2update=null;
-		// TODO use regular translate args to name,QQ...
+		
 		if(true){
 			h2update="name="+"'被修改啦~'";
 		}

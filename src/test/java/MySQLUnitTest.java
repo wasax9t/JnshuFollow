@@ -3,14 +3,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import cn.yxy.daoImpl.Mysqlbasic;
+import cn.yxy.daoImpl.MySQLUnit;
 
 
-public class SbT {
+public class MySQLUnitTest {
 	
 	@Test
 	public void teatmain(){
-		Mysqlbasic mb=new Mysqlbasic();
+		MySQLUnit mb=new MySQLUnit();
 		assertTrue(mb.initConn());
 		assertTrue(mb.closeConn());
 	}
