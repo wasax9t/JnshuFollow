@@ -5,6 +5,7 @@ import java.sql.Statement;
 
 import cn.yxy.dao.StudentDAO;
 import cn.yxy.data_object.StudentDO;
+import cn.yxy.dbc_pool.MySQLUnit;
 
 public class StuDAOImpl implements StudentDAO {
 
