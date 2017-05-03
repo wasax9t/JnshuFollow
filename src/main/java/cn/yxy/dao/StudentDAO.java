@@ -1,5 +1,6 @@
 package cn.yxy.dao;
 
+import java.sql.Connection;
 import cn.yxy.data_object.StudentDO;
 
 public interface StudentDAO {
@@ -7,7 +8,7 @@ public interface StudentDAO {
 	 * 添加一个学生数据
 	 * @return插入的自动生成ID
 	 */
-	long insert(StudentDO stu);
+	long insert(StudentDO stu,Connection conn);
 	
 	/*
 	 * 根据ID删除学生数据

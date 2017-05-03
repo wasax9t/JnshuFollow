@@ -3,6 +3,7 @@ package cn.yxy.unit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 public class MySQLUnit {
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	private static final String DBURL = "jdbc:mysql://localhost:3306/db_jnshu_follow"

@@ -1,6 +1,9 @@
 package cn.yxy.data_object;
 
 public class StudentDO {
+	private long id;
+	private long createAt;
+	private long updateAt;
 	private String name;
 	private String moreInfo;
 	private int periods;
@@ -8,7 +11,14 @@ public class StudentDO {
 	private Course course;
 	private boolean passed;
 	
-	public StudentDO(){}
+	public StudentDO(){
+		this.createAt=System.currentTimeMillis();
+		this.name="";
+		this.periods=(int)(Math.random()*1000);
+		this.city="wuhai";
+		this.course=Course.JAVA;
+		this.passed=false;
+	}
 	public StudentDO(int rLevel){
 		//TODO random generate student object
 	}
@@ -48,6 +58,24 @@ public class StudentDO {
 	}
 	public void setPassed(boolean passed) {
 		this.passed = passed;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public long getCreateAt() {
+		return createAt;
+	}
+	public void setCreateAt(long createAt) {
+		this.createAt = createAt;
+	}
+	public long getUpdateAt() {
+		return updateAt;
+	}
+	public void setUpdateAt(long updateAt) {
+		this.updateAt = updateAt;
 	}
 	
 }

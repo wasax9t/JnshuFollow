@@ -1,6 +1,7 @@
 package cn.yxy.dbc_pool;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class DBPool {
 
 	public synchronized Connection getConn() {
 		Connection conn = null;
-		if (connPool.isEmpty()) {
+		while (connPool.isEmpty()) {
 			handle();
 			try {
 				this.wait();
@@ -34,7 +35,24 @@ public class DBPool {
 
 	public synchronized void givebackConn(Connection conn) {
 		connPool.add(conn);
-		this.notify();
+		this.notifyAll();
+	}
+	
+	public boolean closePool(){
+		try {
+			while(!connPool.isEmpty()){
+				connPool.remove(0).close();
+				currentSize--;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println("try closePool,currentSize="+currentSize);
+		if(currentSize==0){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 	private void handle() {
