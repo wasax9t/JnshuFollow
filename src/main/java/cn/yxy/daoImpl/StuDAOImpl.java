@@ -9,15 +9,21 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import cn.yxy.dao.StudentDAO;
-import cn.yxy.data_object.StudentDO;
 import cn.yxy.dbc_pool.DBPool;
 import cn.yxy.dbc_pool.MySQLUnit;
+import cn.yxy.domain.Student;
 
 public class StuDAOImpl implements StudentDAO {
 	
-	private static final Logger logger=LogManager.getLogger(StuDAOImpl.class);
+//	private static final Logger logger=LogManager.getLogger(StuDAOImpl.class);
 
-	public long insert(StudentDO stu,Connection conn) {
+	private Connection conn;
+	
+	public StuDAOImpl(Connection conn){
+		this.conn=conn;
+	}
+
+	public long insert(Student stu) {
 		long id = 0;
 		Statement stmt=null;
 		String insertS="INSERT INTO student"
@@ -26,7 +32,7 @@ public class StuDAOImpl implements StudentDAO {
 				",'"+stu.getCity()+"','"+stu.getCourse()+
 				"',DEFAULT)";
 //		System.out.println(insertS);
-		logger.info(insertS);
+//		logger.info(insertS);
 		try {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(insertS);
@@ -66,8 +72,8 @@ public class StuDAOImpl implements StudentDAO {
 		return TorF;
 	}
 
-	public StudentDO getByID(long ID) {
-		StudentDO stu = null;
+	public Student getByID(long ID) {
+		Student stu = null;
 		Connection conn = null;
 		try {
 			conn = MySQLUnit.getConn();
@@ -81,7 +87,7 @@ public class StuDAOImpl implements StudentDAO {
 		try {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(findString);
-			stu = new StudentDO();
+			stu = new Student();
 			while (rset.next()) {
 				// TODO stu
 			}
@@ -99,7 +105,7 @@ public class StuDAOImpl implements StudentDAO {
 		return stu;
 	}
 
-	public boolean updateByID(long ID, StudentDO stu) {
+	public boolean updateByID(long ID, Student stu) {
 		boolean TorF = false;
 		String h2update = null;
 

@@ -1,10 +1,10 @@
-package cn.yxy.unit;
+package cn.yxy.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 
-public class MySQLUnit {
+public class MySQLUtil {
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	private static final String DBURL = "jdbc:mysql://localhost:3306/db_jnshu_follow"
 			+ "?useUnicode=true&characterEncoding=utf-8&useSSL=false";

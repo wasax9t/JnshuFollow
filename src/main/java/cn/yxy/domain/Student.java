@@ -1,6 +1,6 @@
-package cn.yxy.data_object;
+package cn.yxy.domain;
 
-public class StudentDO {
+public class Student {
 	private long id;
 	private long createAt;
 	private long updateAt;
@@ -11,16 +11,20 @@ public class StudentDO {
 	private Course course;
 	private boolean passed;
 	
-	public StudentDO(){
+	public Student(){
 		this.createAt=System.currentTimeMillis();
 		this.name="";
-		this.periods=(int)(Math.random()*1000);
-		this.city="wuhai";
-		this.course=Course.JAVA;
+		this.periods=0;
+		this.city="";
+		this.course=Course.DEFAULT;
 		this.passed=false;
 	}
-	public StudentDO(int rLevel){
-		//TODO random generate student object
+	
+	@Override
+	public String toString(){
+		String p=passed?",passed:yes":",passed:no";
+		return "id="+id+",name="+name+",periods="+periods+
+				",city="+city+",course="+course+p;
 	}
 	
 	public String getName() {
