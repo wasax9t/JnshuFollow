@@ -23,7 +23,7 @@ public class StuDAOImpl implements StudentDAO {
 		this.conn=conn;
 	}
 
-	public long insert(Student stu) {
+	public long insertStu(Student stu) {
 		long id = 0;
 		Statement stmt=null;
 		String insertS="INSERT INTO student"
@@ -44,7 +44,7 @@ public class StuDAOImpl implements StudentDAO {
 		return id;
 	}
 
-	public boolean deleteByID(long ID) {
+	public boolean deleteStu(long ID) {
 		boolean TorF = false;
 		Connection conn = null;
 		try {
@@ -72,7 +72,7 @@ public class StuDAOImpl implements StudentDAO {
 		return TorF;
 	}
 
-	public Student getByID(long ID) {
+	public Student getStuByID(long ID) {
 		Student stu = null;
 		Connection conn = null;
 		try {
@@ -105,7 +105,7 @@ public class StuDAOImpl implements StudentDAO {
 		return stu;
 	}
 
-	public boolean updateByID(long ID, Student stu) {
+	public boolean updateStu(Student stu) {
 		boolean TorF = false;
 		String h2update = null;
 
@@ -119,7 +119,7 @@ public class StuDAOImpl implements StudentDAO {
 			e1.printStackTrace();
 		}
 		Statement stmt = null;
-		String updateString = "UPDATE student SET " + h2update + " WHERE " + "ID=" + ID;
+		String updateString = "UPDATE student SET " + h2update + " WHERE " + "ID=" + id;
 		try {
 			stmt = conn.createStatement();
 			stmt.executeUpdate(updateString);
