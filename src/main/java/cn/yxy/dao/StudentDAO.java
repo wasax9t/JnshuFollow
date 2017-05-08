@@ -1,28 +1,38 @@
 package cn.yxy.dao;
 
 
+import org.apache.ibatis.annotations.Select;
+
 import cn.yxy.domain.Student;
 
 public interface StudentDAO {
 	/*
 	 * 添加一个学生数据
-	 * @return插入的自动生成ID
+	 * @return mybatis自动return的是1
 	 */
-	long insertStu(Student stu);
+	long insert(Student stu);
 	
 	/*
-	 * 根据ID删除学生数据
+	 * 根据id删除学生数据
 	 */
-	boolean deleteByID(long aID);
+	boolean deleteById(long id);
 	
 	/*
-	 * 根据ID查询学生数据
-	 * @return 暂为name,more_info,periods,city,field的一个字符串数组
+	 * 根据id查询学生数据
+	 * @return Student对象
 	 */
-	Student getStuByID(long aID);
+	Student getById(long id);
 	
 	/*
-	 * 根据ID更新学生数据，将使用正则判断需更新的信息（未实现）
+	 * 更新学生数据
 	 */
-	boolean updateStuByID(long ID,Student stu);
+	boolean update(Student stu);
+
+	/*
+	 * 根据name查询学生数据
+	 * @return Student对象
+	 */
+	@Select("SELECT id,create_at,name,sno,periods,city,course FROM student "
+			+ "WHERE name = #{name}")
+	Student getByName(String name);
 }
