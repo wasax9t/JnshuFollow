@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.yxy.dao.StudentDAO;
 import cn.yxy.domain.Student;
-import cn.yxy.util.RandomStuUtil;
 
 /**
  * 数据库连接池使用测试

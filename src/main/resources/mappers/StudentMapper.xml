@@ -3,42 +3,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.yxy.dao.StudentDAO">
-  <insert id="insert" parameterType="Student" 
-    useGeneratedKeys="true" keyProperty="id">
-   INSERT INTO 
-     student(create_at,name, periods, city, course)
-      VALUES(#{createAt}, #{name}, #{periods}, #{city}, #{course})
-  </insert>
-  
-  <delete id="deleteById" parameterType="long">
-    DELETE FROM student WHERE id = #{id}
-  </delete>
-  
-  <select id="getById" parameterType="long" resultType="Student">
-     SELECT 
-       id, 
-       create_at, 
-       name, 
-       sno,
-       periods, 
-       city,  
-       course
-     FROM 
-       student 
-     WHERE 
-       id = #{id}
-  </select>
+	<insert id="insert" parameterType="Student" useGeneratedKeys="true"
+		keyProperty="id">
+		INSERT INTO
+		student(create_at,name, periods, city, course)
+		VALUES(#{createAt}, #{name}, #{periods}, #{city}, #{course})
+	</insert>
 
-  <update id="update" parameterType="Student">
-    UPDATE student 
-    SET 
-     update_at = #{updateAt},
-     name = #{name},
-     sno = #{sno},
-     periods = #{periods},
-     city = #{city},
-     course = #{course}
-    WHERE id = #{id}
-  </update>
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM student WHERE id = #{id}
+	</delete>
+
+	<select id="getById" parameterType="long" resultType="Student">
+		SELECT
+		id,
+		create_at,
+		name,
+		sno,
+		periods,
+		city,
+		course
+		FROM
+		student
+		WHERE
+		id = #{id}
+	</select>
+
+	<update id="update" parameterType="Student">
+		UPDATE student
+		SET
+		update_at = #{updateAt},
+		name = #{name},
+		sno = #{sno},
+		periods = #{periods},
+		city = #{city},
+		course = #{course}
+		WHERE id = #{id}
+	</update>
 
 </mapper>
