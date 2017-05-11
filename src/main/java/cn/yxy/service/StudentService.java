@@ -24,11 +24,11 @@ public interface StudentService {
 	 * 查找学生数据
 	 * @param 学生id
 	 */
-	Student search(long id);
+	Student get(long id);
 	
 	/*
 	 * @param 学生姓名
 	 */
-	Student search(String name);
+	Student get(String name);
 	
 }

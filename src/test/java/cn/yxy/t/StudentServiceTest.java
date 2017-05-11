@@ -23,5 +23,10 @@ public class StudentServiceTest extends BaseTest {
 		long id=sos.login(stu);
 		System.out.println(id);
 	}
-		
+	
+	@Test
+	public void getTest(){
+		Student stu=sos.get(8);
+		System.out.println(stu);
+	}
 }

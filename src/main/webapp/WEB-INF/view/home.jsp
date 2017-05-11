@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello Spring MVC!</title>
+<title>Hello Student!</title>
 </head>
 <body>
 	<h2>${message}</h2>
