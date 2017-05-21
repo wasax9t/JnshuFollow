@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context.xsd">
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop  
+  	http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:jdbc.properties" />
+	
+	<!-- 使用springAOP -->
+    <aop:aspectj-autoproxy />  
+    <context:component-scan base-package="cn.yxy.aoplog" />
 
-	<!-- c3p0数据源配置暂未使用 -->
+	<!-- c3p0数据源配置使用 -->
 	<bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<!-- 基础配置 -->
 		<property name="jdbcUrl" value="${jdbc.url}"></property>
@@ -35,7 +44,7 @@
 	</bean>
 
 
-	<!--定义一个jdbc数据源，创建一个驱动管理数据源的bean -->
+	<!--jdbc数据源，未使用 -->
 	<bean id="jdbcDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driver}" />
@@ -46,9 +55,9 @@
 
 	<!--创建mybatis会话工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="jdbcDataSource"></property> <!-- 指定数据源 -->
+		<property name="dataSource" ref="c3p0DataSource"></property> <!-- 指定数据源 -->
 		<property name="configLocation" value="classpath:mybatis-config.xml"></property><!-- 指定配置文件 -->
-		<!--如果不指定配置文件，可以用下面这个方法 -->
+		<!--指定mapper文件位置 -->
 		<property name="mapperLocations" value="classpath:mappers/*Mapper.xml"></property>
 		<!--类型别名包 -->
 		<property name="typeAliasesPackage" value="cn.yxy.domain"></property>

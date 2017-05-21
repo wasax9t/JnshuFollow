@@ -8,7 +8,7 @@ public interface StudentService {
 	 * 注册学生用户
 	 * @return 学生id
 	 */
-	long login(Student stu);
+	long insert(Student stu);
 	
 	/*
 	 * 删除学生数据

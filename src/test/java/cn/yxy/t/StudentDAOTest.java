@@ -39,7 +39,6 @@ public class StudentDAOTest extends BaseTest {
 	@Test
 	public void insertTest() {
 		Student stu=new Student();
-		System.out.println(stu.getId());
 		long t=sos.insert(stu);
 		System.out.println(stu.getId());
 		System.out.println(t);

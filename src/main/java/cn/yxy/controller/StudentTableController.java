@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.yxy.aoplog.RequiredTS;
 import cn.yxy.domain.Student;
 import cn.yxy.service.StudentService;
 
@@ -19,22 +20,41 @@ public class StudentTableController {
 	@Autowired
 	private StudentService ss;
 
+	@RequiredTS
 	@RequestMapping(method=RequestMethod.GET)
 	public String stuHome(Model model){
 		model.addAttribute("message", "这是一个student表的主页，可能在将来提供一些链接");
 		return "home";
 	}
 	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public String loginAfter(Model model,@RequestBody Student stu){
-		long id = ss.login(stu);
+	@RequiredTS
+	@RequestMapping(value="/register",method=RequestMethod.POST)
+	public String loginController(Model model,@RequestBody Student stu){
+		long id = ss.insert(stu);
 		model.addAttribute("message", "注册成功了吧，你的ID是："+id);
 		return "home";
 	}
 	
+	@RequiredTS
 	@RequestMapping(value="/u/{id}",method=RequestMethod.GET)
-	public @ResponseBody Student getAfter(@PathVariable long id){
+	public @ResponseBody Student getController(@PathVariable long id){
 		Student stu=ss.get(id);
 		return stu;
+	}
+	
+	@RequiredTS
+	@RequestMapping(value="/u/{id}",method=RequestMethod.DELETE)
+	public String deleteController(Model model,@PathVariable long id){
+		boolean tf=ss.delete(id);
+		model.addAttribute("message", id+"删了吗"+tf);
+		return "home";
+	}
+	
+	@RequiredTS
+	@RequestMapping(value="/u",method=RequestMethod.PUT)
+	public String updateController(Model model,@RequestBody Student stu){
+		boolean tf=ss.update(stu);
+		model.addAttribute("message", stu.getId()+"更新了吗"+tf);
+		return "home";
 	}
 }

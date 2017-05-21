@@ -1,15 +1,21 @@
 package cn.yxy.dao;
 
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+import cn.yxy.aoplog.RequiredTS;
 import cn.yxy.domain.Student;
+
 
 public interface StudentDAO {
 	/*
 	 * 添加一个学生数据
 	 * @return mybatis自动return的是1
 	 */
+	@Insert("INSERT INTO student(create_at,name, periods, city, course) VALUES(#{createAt}, #{name}, #{periods}, #{city}, #{course})")
 	long insert(Student stu);
 	
 	/*

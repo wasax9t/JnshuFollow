@@ -18,9 +18,9 @@ public class StudentServiceTest extends BaseTest {
 	private StudentService sos;
 
 	@Test
-	public void test1() {
+	public void insertTest() {
 		Student stu=RandomStuUtil.getRandomStu();
-		long id=sos.login(stu);
+		long id=sos.insert(stu);
 		System.out.println(id);
 	}
 	
@@ -28,5 +28,19 @@ public class StudentServiceTest extends BaseTest {
 	public void getTest(){
 		Student stu=sos.get(8);
 		System.out.println(stu);
+	}
+	
+	@Test
+	public void deleteTest(){
+		boolean tf=sos.delete(21);
+		System.out.println(tf);
+	}
+	
+	@Test
+	public void updateTest(){
+		Student stu=RandomStuUtil.getRandomStu();
+		stu.setId(4);
+		boolean tf=sos.update(stu);
+		System.out.println(tf);
 	}
 }
