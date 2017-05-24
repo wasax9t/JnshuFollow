@@ -18,7 +18,7 @@ import cn.yxy.service.StudentService;
 public class StudentTableController {
 	
 	@Autowired
-	private StudentService ss;
+	private StudentService studentService;
 
 	@RequiredTS
 	@RequestMapping(method=RequestMethod.GET)
@@ -30,7 +30,7 @@ public class StudentTableController {
 	@RequiredTS
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String loginController(Model model,@RequestBody Student stu){
-		long id = ss.insert(stu);
+		long id = studentService.insert(stu);
 		model.addAttribute("message", "注册成功了吧，你的ID是："+id);
 		return "home";
 	}
@@ -38,14 +38,14 @@ public class StudentTableController {
 	@RequiredTS
 	@RequestMapping(value="/u/{id}",method=RequestMethod.GET)
 	public @ResponseBody Student getController(@PathVariable long id){
-		Student stu=ss.get(id);
+		Student stu=studentService.get(id);
 		return stu;
 	}
 	
 	@RequiredTS
 	@RequestMapping(value="/u/{id}",method=RequestMethod.DELETE)
 	public String deleteController(Model model,@PathVariable long id){
-		boolean tf=ss.delete(id);
+		boolean tf=studentService.delete(id);
 		model.addAttribute("message", id+"删了吗"+tf);
 		return "home";
 	}
@@ -53,7 +53,7 @@ public class StudentTableController {
 	@RequiredTS
 	@RequestMapping(value="/u",method=RequestMethod.PUT)
 	public String updateController(Model model,@RequestBody Student stu){
-		boolean tf=ss.update(stu);
+		boolean tf=studentService.update(stu);
 		model.addAttribute("message", stu.getId()+"更新了吗"+tf);
 		return "home";
 	}

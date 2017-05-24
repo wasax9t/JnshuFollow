@@ -12,23 +12,30 @@ public class Student {
 	private Course course;
 	private boolean passed;
 	
-	public Student(){
-		this.createAt=System.currentTimeMillis();
-		this.name="";
-		this.sno=0;
-		this.periods=0;
-		this.city="";
-		this.course=Course.DEFAULT;
-		this.passed=false;
-	}
+	public Student(){}
 	
+	public Student(long id, long createAt, long updateAt, String name, long sno, String moreInfo, int periods,
+			String city, Course course, boolean passed) {
+		super();
+		this.id = id;
+		this.createAt = createAt;
+		this.updateAt = updateAt;
+		this.name = name;
+		this.sno = sno;
+		this.moreInfo = moreInfo;
+		this.periods = periods;
+		this.city = city;
+		this.course = course;
+		this.passed = passed;
+	}
+
 	@Override
-	public String toString(){
-		String p=passed?",passed:yes":",passed:no";
-		return "id="+id+",name="+name+",periods="+periods+
-				",city="+city+",course+sno="+course+"-"+sno+p;
+	public String toString() {
+		return "Student [id=" + id + ", createAt=" + createAt + ", updateAt=" + updateAt + ", name=" + name + ", sno="
+				+ sno + ", moreInfo=" + moreInfo + ", periods=" + periods + ", city=" + city + ", course=" + course
+				+ ", passed=" + passed + "]";
 	}
-	
+
 	public String getName() {
 		return name;
 	}

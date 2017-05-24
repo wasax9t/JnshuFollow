@@ -6,7 +6,7 @@
 	<artifactId>hello-jnshu</artifactId>
 	<version>0.1.0</version>
 	<packaging>war</packaging>
-	<name>jndemo</name>
+	<name>JnshuDemo</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -15,6 +15,12 @@
 	</properties>
 
 	<dependencies>
+		<!-- tiles整包，也可单独引入jsp、servlet、template、el -->
+		<dependency>
+    		<groupId>org.apache.tiles</groupId>
+    		<artifactId>tiles-extras</artifactId>
+   		 <version>3.0.7</version>
+		</dependency>
 		<!-- jackson包，支持json -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -45,11 +51,10 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>2.0</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
 		<!-- mySQL驱动 -->
 		<dependency>
 			<groupId>mysql</groupId>

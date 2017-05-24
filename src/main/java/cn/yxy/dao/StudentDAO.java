@@ -3,10 +3,6 @@ package cn.yxy.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
-
-import cn.yxy.aoplog.RequiredTS;
 import cn.yxy.domain.Student;
 
 

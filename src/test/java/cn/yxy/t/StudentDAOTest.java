@@ -18,7 +18,7 @@ public class StudentDAOTest extends BaseTest {
 	@Test
 	public void getByIdTest() throws Exception{
 		
-		Student stu = sos.getById(9);
+		Student stu = sos.getById(4);
 		System.out.println(stu);
 	}
 	

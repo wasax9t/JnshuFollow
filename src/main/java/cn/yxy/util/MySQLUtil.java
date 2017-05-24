@@ -3,7 +3,7 @@ package cn.yxy.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
+//已经不用了
 public class MySQLUtil {
 	private static final String JDBC_DRIVER="com.mysql.jdbc.Driver";
 	private static final String DBURL = "jdbc:mysql://localhost:3306/db_jnshu_follow"
