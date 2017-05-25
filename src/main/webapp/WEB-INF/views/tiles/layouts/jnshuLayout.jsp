@@ -17,14 +17,15 @@
 <script type="text/javascript"
 	src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<link href="<c:url value='/static/css/bootstrap.min.css' />"
-	rel="stylesheet"></link>
-<link href="<c:url value='/static/css/Untitled-3.css' />"
-	rel="stylesheet"></link>
-<link href="<c:url value='/static/css/Untitled-1base.css' />"
-	rel="stylesheet"></link>
-<link href="<c:url value='/static/css/t11.css' />" rel="stylesheet"></link>
-<link href="<c:url value='/static/css/base.css' />" rel="stylesheet"></link>
+<link rel="stylesheet"
+	href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+
+<link href="<c:url value='/static/css/Untitled-3.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/Untitled-1base.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/t11.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/base.css' />" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>

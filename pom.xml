@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.company.projectgroup</groupId>
-	<artifactId>hello-jnshu</artifactId>
+	<artifactId>jnshudemo</artifactId>
 	<version>0.1.0</version>
 	<packaging>war</packaging>
-	<name>JnshuDemo</name>
+	<name>jnshudemo</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

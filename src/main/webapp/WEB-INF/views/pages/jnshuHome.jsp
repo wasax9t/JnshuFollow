@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+
 <jsp:include page="/WEB-INF/views/tiles/component/carouselPicture.jsp"/>
 
 <div class="main container">
@@ -13,7 +14,7 @@
 				<div class="row text-center">
 					<ul class="list-unstyled">
 						<li class="col-xs-12 up-1"><img alt=""
-							src="/static/img/45354312.png"></li>
+							src="<c:url value='/static/img/45354312.png' />"></li>
 						<li class="up-2 col-xs-12">高效</li>
 						<li class="up-3 col-xs-12">将三到七年的成长时间,缩短到一年到两年</li>
 					</ul>
@@ -23,7 +24,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 				<div class="row text-center">
 					<ul class="list-unstyled">
-						<li class="col-xs-12 up-1"><img alt="" src="/static/img/879789.png">
+						<li class="col-xs-12 up-1"><img alt="" src="<c:url value='/static/img/879789.png' />">
 						</li>
 						<li class="up-2 col-xs-12">规范</li>
 						<li class="up-3 col-xs-12">标准到实战教程,不会走弯路</li>
@@ -35,7 +36,7 @@
 				<div class="row text-center">
 					<ul class="list-unstyled">
 						<li class="col-xs-12 up-1"><img alt=""
-							src="/static/img/786453654365.png"></li>
+							src="<c:url value='/static/img/786453654365.png' />"></li>
 						<li class="up-2 col-xs-12">人脉</li>
 						<li class="up-3 col-xs-12">同班好友,同院学长,技术大师,入学就混职脉圈,为以后铺平道路</li>
 					</ul>
@@ -44,11 +45,11 @@
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 text-center">
 				<p>
-					<img src="/static/img/453254312.png">12400<br> <span
+					<img src="<c:url value='/static/img/453254312.png' />">12400<br> <span
 						class="up-3">累计在线学习人数</span>
 				</p>
 				<p>
-					<img src="/static/img/453254312.png">12400<br> <span
+					<img src="<c:url value='/static/img/453254312.png' />">12400<br> <span
 						class="up-3">学员已经找到满意工作</span>
 				</p>
 			</div>
@@ -96,7 +97,7 @@
 				<c:forEach items="${studentList}" var="student">
 					<li class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
 						<div>
-							<img src="/static/img/242424.png"><span>${student.course}:${student.name}</span>
+							<img src="<c:url value='/static/img/242424.png' />"><span>${student.course}:${student.name}</span>
 							<p class="text-left"><b>${student.moreInfo}</b></p>
 						</div>
 					</li>
@@ -109,11 +110,11 @@
 			<h3 class="text-center">战略合作企业</h3>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<ul class="logo">
-					<li><a href=""><img src="/static/img/123132.png"></a></li>
-					<li><a href=""> <img src="/static/img/1549865.png"></a></li>
-					<li><a href=""> <img src="/static/img/785345.png"></a></li>
-					<li><a href=""> <img src="/static/img/1471.png"></a></li>
-					<li><a href=""> <img src="/static/img/7861.png"></a></li>
+					<li><a href=""><img src="<c:url value='/static/img/123132.png' />"></a></li>
+					<li><a href=""> <img src="<c:url value='/static/img/1549865.png' />"></a></li>
+					<li><a href=""> <img src="<c:url value='/static/img/785345.png' />"></a></li>
+					<li><a href=""> <img src="<c:url value='/static/img/1471.png' />"></a></li>
+					<li><a href=""> <img src="<c:url value='/static/img/7861.png' />"></a></li>
 				</ul>
 			</div>
 		</div>

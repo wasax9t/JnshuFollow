@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.yxy.dao.StudentDAO;
 import cn.yxy.domain.Student;
+import cn.yxy.util.RandomStuUtil;
 
 /**
  * 数据库连接池使用测试
@@ -13,40 +14,40 @@ import cn.yxy.domain.Student;
 
 public class StudentDAOTest extends BaseTest {
 	@Autowired
-	private StudentDAO sos;
+	private StudentDAO studentDAO;
 
 	@Test
 	public void getByIdTest() throws Exception{
 		
-		Student stu = sos.getById(4);
+		Student stu = studentDAO.getById(4);
 		System.out.println(stu);
 	}
 	
 	@Test
 	public void deleteByIdTest() {
-		boolean t=sos.deleteById(40);
+		boolean t=studentDAO.deleteById(40);
 		System.out.println(t);
 	}
 	
 	@Test
 	public void updateTest() {
-		Student stu=new Student();
+		Student stu=RandomStuUtil.getRandomStu();
 		stu.setId(30);
-		boolean t=sos.update(stu);
+		boolean t=studentDAO.update(stu);
 		System.out.println(t);
 	}
 	
 	@Test
 	public void insertTest() {
-		Student stu=new Student();
-		long t=sos.insert(stu);
+		Student stu=RandomStuUtil.getRandomStu();
+		long t=studentDAO.insert(stu);
 		System.out.println(stu.getId());
 		System.out.println(t);
 	}
 	
 	@Test
 	public void getByNameTest() throws Exception{
-		Student stu = sos.getByName("赵文博");
+		Student stu = studentDAO.getByName("赵文博");
 		System.out.println(stu);
 	}
 

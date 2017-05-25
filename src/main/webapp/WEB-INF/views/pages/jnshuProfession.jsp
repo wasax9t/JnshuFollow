@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container">
 
@@ -21,7 +22,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -32,13 +33,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -95,7 +96,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -106,13 +107,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -169,7 +170,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -180,13 +181,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -243,7 +244,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -254,13 +255,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -317,7 +318,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -328,13 +329,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -391,7 +392,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -402,13 +403,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -472,7 +473,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -483,13 +484,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -546,7 +547,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -557,13 +558,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -620,7 +621,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -631,13 +632,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -694,7 +695,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -705,13 +706,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -768,7 +769,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -779,13 +780,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -842,7 +843,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -853,13 +854,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -923,7 +924,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -934,13 +935,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -997,7 +998,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -1008,13 +1009,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -1071,7 +1072,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -1082,13 +1083,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -1145,7 +1146,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -1156,13 +1157,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -1219,7 +1220,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -1230,13 +1231,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>
@@ -1293,7 +1294,7 @@
 			<div class="warp-border">
 				<div class="clearfix">
 					<div class="icon-people">
-						<img src="/static/img/687.png">
+						<img src="<c:url value='/static/img/687.png' />">
 					</div>
 					<div class="text">
 						<h4 class="">Web前端工程师</h4>
@@ -1304,13 +1305,13 @@
 				<div class="warp-class2">
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding">
-							门槛 <img src="/static/img/xx.png">
+							门槛 <img src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 					<div class="warp-class2-text">
 						<div class="iconfont text-padding text-border-left">
-							难易程度 <img src="/static/img/xx.png"><img
-								src="/static/img/xx.png">
+							难易程度 <img src="<c:url value='/static/img/xx.png' />"><img
+								src="<c:url value='/static/img/xx.png' />">
 						</div>
 					</div>
 				</div>

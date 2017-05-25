@@ -15,24 +15,24 @@ import cn.yxy.util.RandomStuUtil;
 public class StudentServiceTest extends BaseTest {
 	
 	@Autowired
-	private StudentService sos;
+	private StudentService studentService;
 
 	@Test
 	public void insertTest() {
 		Student stu=RandomStuUtil.getRandomStu();
-		long id=sos.insert(stu);
+		long id=studentService.insert(stu);
 		System.out.println(id);
 	}
 	
 	@Test
 	public void getTest(){
-		Student stu=sos.get(4);
+		Student stu=studentService.get(4);
 		System.out.println(stu);
 	}
 	
 	@Test
 	public void deleteTest(){
-		boolean tf=sos.delete(21);
+		boolean tf=studentService.delete(21);
 		System.out.println(tf);
 	}
 	
@@ -40,7 +40,7 @@ public class StudentServiceTest extends BaseTest {
 	public void updateTest(){
 		Student stu=RandomStuUtil.getRandomStu();
 		stu.setId(22);
-		boolean tf=sos.update(stu);
+		boolean tf=studentService.update(stu);
 		System.out.println(tf);
 	}
 }

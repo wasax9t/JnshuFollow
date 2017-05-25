@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="footer">
 	<div class="container">
@@ -26,7 +27,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 up-3">
 				<p>微信公众平台</p>
-				<img alt="" src="/static/img/2524.jpg">
+				<img alt="" src="<c:url value='/static/img/2524.jpg' />">
 			</div>
 		</div>
 	</div>

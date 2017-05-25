@@ -16,7 +16,7 @@
    <!-- jnshu Home Page -->
    <definition name="jnshuIndex" extends="jnshu-definition">  
        <put-attribute name="title" value="Jnshu Index" />  
-       <put-attribute name="body" value="/WEB-INF/views/pages/jnshuIndex.jsp" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/jnshuHome.jsp" />  
    </definition>
    
    <!-- jnshu pro Page -->
