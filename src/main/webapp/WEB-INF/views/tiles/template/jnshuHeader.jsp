@@ -33,7 +33,7 @@
 			<ul class="nav navbar-nav navbar-right text-center list-inline">
 				<li><a href="${pageContext.request.contextPath}/">首页</a></li>
 				<li><a href="${pageContext.request.contextPath}/profession">职业</a></li>
-				<li><a href="">推荐</a></li>
+				<li><a href="${pageContext.request.contextPath}/u/home">用户主页</a></li>
 				<li><a href="${pageContext.request.contextPath}/time">时间转换功能</a></li>
 			</ul>
 		</div>

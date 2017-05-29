@@ -3,10 +3,11 @@ package cn.yxy.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+
 import cn.yxy.domain.Student;
 
 
-public interface StudentDAO {
+public interface StudentMapper {
 	/*
 	 * 添加一个学生数据
 	 * @return mybatis自动return的是1
@@ -17,13 +18,13 @@ public interface StudentDAO {
 	/*
 	 * 根据id删除学生数据
 	 */
-	boolean deleteById(long id);
+	boolean deleteByid(long id);
 	
 	/*
 	 * 根据id查询学生数据
 	 * @return Student对象
 	 */
-	Student getById(long id);
+	Student getByid(long id);
 	
 	/*
 	 * 更新学生数据

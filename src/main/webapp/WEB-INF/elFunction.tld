@@ -16,7 +16,7 @@
 		<!--<function-class>子元素用于指定完整的Java类名 -->
 		<function-class>cn.yxy.util.TimeTransfer</function-class>
 		<!--<function-signature>子元素用于指定Java类中的静态方法的签名， 方法签名必须指明方法的返回值类型及各个参数的类型，各个参数之间用逗号分隔。 -->
-		<function-signature>java.util.Date msToDate(long)</function-signature>
+		<function-signature>java.lang.String msToDate(long)</function-signature>
 	</function>
 
 </taglib>

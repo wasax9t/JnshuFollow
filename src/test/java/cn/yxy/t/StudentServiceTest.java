@@ -39,7 +39,7 @@ public class StudentServiceTest extends BaseTest {
 	@Test
 	public void updateTest(){
 		Student stu=RandomStuUtil.getRandomStu();
-		stu.setId(22);
+		stu.setid(22);
 		boolean tf=studentService.update(stu);
 		System.out.println(tf);
 	}

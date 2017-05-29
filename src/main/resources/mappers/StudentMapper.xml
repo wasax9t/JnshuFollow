@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.yxy.dao.StudentDAO">
+<mapper namespace="cn.yxy.dao.StudentMapper">
 
-	<delete id="deleteById" parameterType="long">
+	<delete id="deleteByid" parameterType="long">
 		DELETE FROM student WHERE id = #{id}
 	</delete>
 
-	<select id="getById" parameterType="long" resultType="Student">
+	<select id="getByid" parameterType="long" resultType="Student">
 		SELECT
 		id,
 		create_at,

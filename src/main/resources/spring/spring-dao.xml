@@ -42,8 +42,7 @@
 		<!--最大空闲时间,1800秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
 		<property name="maxIdleTime" value="1800"></property>
 	</bean>
-
-
+	
 	<!--jdbc数据源，未使用 -->
 	<bean id="jdbcDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -62,7 +61,10 @@
 		<!--类型别名包 -->
 		<property name="typeAliasesPackage" value="cn.yxy.domain"></property>
 	</bean>
-
+	<!--mybatis会话工厂模板 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
 	<!--自动扫描映射接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定sql会话工厂，在上面配置过的 -->

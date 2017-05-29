@@ -80,10 +80,10 @@ public class Student {
 	public void setPassed(boolean passed) {
 		this.passed = passed;
 	}
-	public long getId() {
+	public long getid() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setid(long id) {
 		this.id = id;
 	}
 	public long getCreateAt() {

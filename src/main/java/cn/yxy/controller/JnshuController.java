@@ -27,7 +27,7 @@ public class JnshuController {
     	list.add(studentService.get(3));
     	list.add(studentService.get(4));
     	model.addAttribute("studentList", list);
-        return "jnshuIndex";
+        return "jnshuHome";
     }
  
     @RequestMapping(value = { "/profession"}, method = RequestMethod.GET)

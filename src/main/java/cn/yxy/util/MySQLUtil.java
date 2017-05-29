@@ -10,15 +10,18 @@ public class MySQLUtil {
 			+ "?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 	private static final String DBUSER = "root";
 	private static final String DBPASS = "admin";
-
+	
 	public static Connection getConn() throws Exception {
 		Connection conn = null;
+		
 		// 加载驱动
 		Class.forName(JDBC_DRIVER);
+		
 
 		// 连接数据库
 		conn = DriverManager.getConnection(DBURL, DBUSER, DBPASS);
 		return conn;
 	}
+	
 
 }

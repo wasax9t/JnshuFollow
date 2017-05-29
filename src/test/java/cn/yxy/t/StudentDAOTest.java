@@ -3,7 +3,7 @@ package cn.yxy.t;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cn.yxy.dao.StudentDAO;
+import cn.yxy.dao.StudentMapper;
 import cn.yxy.domain.Student;
 import cn.yxy.util.RandomStuUtil;
 
@@ -14,40 +14,40 @@ import cn.yxy.util.RandomStuUtil;
 
 public class StudentDAOTest extends BaseTest {
 	@Autowired
-	private StudentDAO studentDAO;
+	private StudentMapper studentMapper;
 
 	@Test
-	public void getByIdTest() throws Exception{
+	public void getByidTest() throws Exception{
 		
-		Student stu = studentDAO.getById(4);
+		Student stu = studentMapper.getByid(4);
 		System.out.println(stu);
 	}
 	
 	@Test
-	public void deleteByIdTest() {
-		boolean t=studentDAO.deleteById(40);
+	public void deleteByidTest() {
+		boolean t=studentMapper.deleteByid(40);
 		System.out.println(t);
 	}
 	
 	@Test
 	public void updateTest() {
 		Student stu=RandomStuUtil.getRandomStu();
-		stu.setId(30);
-		boolean t=studentDAO.update(stu);
+		stu.setid(30);
+		boolean t=studentMapper.update(stu);
 		System.out.println(t);
 	}
 	
 	@Test
 	public void insertTest() {
 		Student stu=RandomStuUtil.getRandomStu();
-		long t=studentDAO.insert(stu);
-		System.out.println(stu.getId());
+		long t=studentMapper.insert(stu);
+		System.out.println(stu.getid());
 		System.out.println(t);
 	}
 	
 	@Test
 	public void getByNameTest() throws Exception{
-		Student stu = studentDAO.getByName("赵文博");
+		Student stu = studentMapper.getByName("赵文博");
 		System.out.println(stu);
 	}
 

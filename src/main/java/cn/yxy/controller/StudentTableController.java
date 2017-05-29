@@ -24,7 +24,7 @@ public class StudentTableController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String stuHome(Model model){
 		model.addAttribute("message", "这是一个student表的主页，可能在将来提供一些链接");
-		return "home";
+		return "student/home";
 	}
 	
 	@RequiredTS
@@ -32,7 +32,7 @@ public class StudentTableController {
 	public String loginController(Model model,@RequestBody Student stu){
 		long id = studentService.insert(stu);
 		model.addAttribute("message", "注册成功了吧，你的ID是："+id);
-		return "home";
+		return "student/home";
 	}
 	
 	@RequiredTS
@@ -47,14 +47,14 @@ public class StudentTableController {
 	public String deleteController(Model model,@PathVariable long id){
 		boolean tf=studentService.delete(id);
 		model.addAttribute("message", id+"删了吗"+tf);
-		return "home";
+		return "student/home";
 	}
 	
 	@RequiredTS
 	@RequestMapping(value="/u",method=RequestMethod.PUT)
 	public String updateController(Model model,@RequestBody Student stu){
 		boolean tf=studentService.update(stu);
-		model.addAttribute("message", stu.getId()+"更新了吗"+tf);
+		model.addAttribute("message", stu.getid()+"更新了吗"+tf);
 		return "home";
 	}
 }

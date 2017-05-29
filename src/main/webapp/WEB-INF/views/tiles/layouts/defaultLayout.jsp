@@ -9,8 +9,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:getAsString name="title" /></title>  <!-- 这里意思应该是从title拿标题  -->
-    <link href="<c:url value='<c:url value='/static/css/bootstrap.css' />' />"  rel="stylesheet"></link>
-    <link href="<c:url value='<c:url value='/static/css/app.css' />' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
 
 <body>
