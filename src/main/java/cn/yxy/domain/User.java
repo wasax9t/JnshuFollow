@@ -3,7 +3,7 @@ package cn.yxy.domain;
 public class User {
     private Long id;
 
-    private String userName;
+    private String name;
 
     private String password;
 
@@ -13,20 +13,20 @@ public class User {
 
     private Long updateAt;
 
-    public Long getid() {
+    public Long getId() {
         return id;
     }
 
-    public void setid(long i) {
+    public void setId(long i) {
         this.id = i;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getPassword() {
@@ -60,10 +60,4 @@ public class User {
     public void setUpdateAt(Long updateAt) {
         this.updateAt = updateAt;
     }
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", email=" + email
-				+ ", createAt=" + createAt + ", updateAt=" + updateAt + "]";
-	}
 }

@@ -24,14 +24,10 @@ public class UserServiceTest extends BaseTest {
 //	}
 	
 	@Test
-	public void loginTest(){
-		User user=new User();
-		user.setid(3);
-		user.setUserName("测试数据");
-		user.setPassword("password");
-		User result=new User();
-//		HttpServletResponse response=;
-//		result=userService.login(user, true, response);
-		System.out.println(result);
+	public void selectByNameTest(){
+		String name="test";
+		User result=userService.selectByName(name);
+		System.out.println(result.getPassword());
+		//我看看是报错还是
 	}
 }

@@ -13,18 +13,25 @@
 <title><tiles:getAsString name="title" /></title>
 <!-- 这里意思是用tiles中的字符串属性赋予标题  -->
 
-<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
 	href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
-<link href="../bootstrap-3.3.5-dist/css/bootstrap.css">
 
-<link href="<c:url value='/static/css/Untitled-3.css' />" rel="stylesheet" type="text/css">
-<link href="<c:url value='/static/css/Untitled-1base.css' />" rel="stylesheet" type="text/css">
-<link href="<c:url value='/static/css/t11.css' />" rel="stylesheet" type="text/css">
-<link href="<c:url value='/static/css/base.css' />" rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/Untitled-3.css' />"
+	rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/Untitled-1base.css' />"
+	rel="stylesheet" type="text/css">
+<link href="<c:url value='/static/css/t11.css' />" rel="stylesheet"
+	type="text/css">
+<link href="<c:url value='/static/css/base.css' />" rel="stylesheet"
+	type="text/css">
+	
+<link href="<c:url value='/static/css/login.css' />" rel="stylesheet"
+	type="text/css">
 
 </head>
 

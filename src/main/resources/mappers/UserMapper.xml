@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.yxy.dao.UserMapper">
-  <resultMap id="UserResultMap" type="cn.yxy.domain.User">
+  <resultMap id="BaseResultMap" type="cn.yxy.domain.User">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="create_at" jdbcType="BIGINT" property="createAt" />
     <result column="update_at" jdbcType="BIGINT" property="updateAt" />
   </resultMap>
-  <sql id="User_Column_List">
-    id, user_name, password, email, create_at, update_at
+  <sql id="Base_Column_List">
+    id, name, password, email, create_at, update_at
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="UserResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
-    <include refid="User_Column_List" />
+    <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -23,10 +23,10 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="cn.yxy.domain.User">
-    insert into user (id, user_name, password, 
+    insert into user (id, name, password, 
       email, create_at, update_at
       )
-    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{createAt,jdbcType=BIGINT}, #{updateAt,jdbcType=BIGINT}
       )
   </insert>
@@ -36,8 +36,8 @@
       <if test="id != null">
         id,
       </if>
-      <if test="userName != null">
-        user_name,
+      <if test="name != null">
+        name,
       </if>
       <if test="password != null">
         password,
@@ -56,8 +56,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -76,8 +76,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.yxy.domain.User">
     update user
     <set>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
@@ -96,7 +96,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.yxy.domain.User">
     update user
-    set user_name = #{userName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       create_at = #{createAt,jdbcType=BIGINT},
@@ -104,18 +104,18 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
   
-  <select id="selectByName" resultMap="UserResultMap" parameterType="java.lang.String" >
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="User_Column_List" />
+    <include refid="Base_Column_List" />
     from user
-    where user_name = #{userName,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR}
   </select>
      
-  <select id="selectByUser" resultMap="UserResultMap" parameterType="cn.yxy.domain.User" >
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="cn.yxy.domain.User" >
     select 
-    <include refid="User_Column_List" />
+    <include refid="Base_Column_List" />
     from user
-    where user_name = #{userName,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
       <if test="email != null" >
         and email = #{email,jdbcType=VARCHAR}
       </if>

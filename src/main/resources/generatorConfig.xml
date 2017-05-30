@@ -11,30 +11,23 @@
 		</commentGenerator>
 		<!-- 数据库连接信息 -->
 		<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/db_jnshu_follow"
-			driverClass="com.mysql.jdbc.Driver" password="admin" id="root" />
+			driverClass="com.mysql.jdbc.Driver" userId="root" password="admin" />
 		<!--生成Model.java文件 -->
 		<javaModelGenerator targetPackage="cn.yxy.domain"
-			targetProject="src/main/java" >
+			targetProject="src/main/java">
 			<!-- 是否针对string类型的字段在set的时候进行trim调用,trim是去除字符串首尾无效字符的方法 -->
-            <property name="trimStrings" value="true" />
-        </javaModelGenerator>
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
 		<!-- 生成Mapper.xml文件 -->
 		<sqlMapGenerator targetPackage="mappers"
 			targetProject="src/main/resources" />
 		<!-- 生成Mapper.java文件，即dao层 -->
 		<javaClientGenerator targetPackage="cn.yxy.dao"
 			targetProject="src/main/java" type="XMLMAPPER" />
-		<table tableName="auto_logins" domainObjectName="AutoLogins"
-			enableCountByExample="false" enableUpdateByExample="false"
-            enableDeleteByExample="false" enableSelectByExample="false"
-            selectByExampleQueryid="false"><!-- 加上这些语句来不使用其生成的Example类 -->
-			<!--<columnOverride column="id" property="id" /> 重写列名-->
-		</table>
-		
-		<table tableName="user" 
-			enableCountByExample="false" enableUpdateByExample="false"
-            enableDeleteByExample="false" enableSelectByExample="false"
-            selectByExampleQueryid="false"> 
+
+		<table tableName="user" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
 	</context>
 </generatorConfiguration>

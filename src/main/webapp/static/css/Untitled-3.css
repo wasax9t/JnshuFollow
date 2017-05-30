@@ -61,7 +61,7 @@
     width: 160px;
 }
 .main-b .up-3 {
-    background:rgba(0, 0, 0, 0) url(<c:url value='<c:url value='<c:url value='/static/img/789678978.png' />' />' />)  no-repeat scroll center center;
+    background:rgba(0, 0, 0, 0) url(value="/static/img/789678978.png")  no-repeat scroll center center;
     display: inline-block;
     height: 30px;
     vertical-align: middle;
