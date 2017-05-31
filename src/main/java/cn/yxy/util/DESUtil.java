@@ -12,6 +12,8 @@ import javax.crypto.spec.IvParameterSpec;
 
 public class DESUtil {
 
+	public final static String DES_KEY = "just a DES-key";
+
 	/**
 	 *
 	 * @return 随机生成的DES算法密钥
@@ -58,7 +60,7 @@ public class DESUtil {
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
 			SecretKey secretKey = keyFactory.generateSecret(dks);
 			// 至此，key变为一个DES可用的key
-			
+
 			// 得到一个DES ECB mode的密码工具对象
 			Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
 			// 用密匙初始化Cipher对象
@@ -84,7 +86,7 @@ public class DESUtil {
 	 */
 	public static byte[] decrypt(byte[] data, byte[] key) {
 		try {
-			//TODO DES算法的随机数源,可以是和加密中的不同，真的可以吗
+			// TODO DES算法的随机数源,可以是和加密中的不同，真的可以吗
 			SecureRandom sRondom = new SecureRandom();
 			// 从原始密匙数据创建一个DESKeySpec对象
 			DESKeySpec dks = new DESKeySpec(key);
@@ -107,14 +109,87 @@ public class DESUtil {
 	}
 
 	/**
+	 * 加密函数 ECB mode String
+	 *
+	 * @param data
+	 *            加密数据
+	 * @param key
+	 *            密钥
+	 * @return 返回加密后的数据
+	 */
+	public static String encrypt(String data, String key) {
+
+		try {
+			byte[] datab = data.getBytes();
+			byte[] keyb = key.getBytes();
+
+			SecureRandom sRondom = new SecureRandom();
+			DESKeySpec dks = new DESKeySpec(keyb);
+			// 创建一个密匙工厂，然后用它把DESKeySpec转换成一个SecretKey对象
+			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+			SecretKey secretKey = keyFactory.generateSecret(dks);
+			// 至此，key变为一个DES可用的key
+
+			// 得到一个DES ECB mode的密码工具对象
+			Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+			// 用密匙初始化Cipher对象
+			cipher.init(Cipher.ENCRYPT_MODE, secretKey, sRondom);
+			// 执行加密操作
+			byte[] encryptedData = cipher.doFinal(datab);
+			String encryptedDatas = byteToHexString(encryptedData);
+			return encryptedDatas;
+		} catch (Exception e) {
+			System.err.println("DES算法，加密数据出错!");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * 解密函数 ECB mode String
+	 *
+	 * @param data
+	 *            解密数据
+	 * @param key
+	 *            密钥
+	 * @return 返回解密后的数据
+	 */
+	public static String decrypt(String data, String key) {
+		try {
+			byte[] datab = DESUtil.hexStringToByte(data);
+			byte[] keyb = key.getBytes();
+
+			SecureRandom sRondom = new SecureRandom();
+			// 从原始密匙数据创建一个DESKeySpec对象
+			DESKeySpec dks = new DESKeySpec(keyb);
+			// 创建一个密匙工厂，然后用它把DESKeySpec对象转换成一个SecretKey对象
+			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+			SecretKey secretKey = keyFactory.generateSecret(dks);
+
+			// using DES in ECB mode
+			Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
+			// 用密匙初始化Cipher对象，注意这里不同点在与Cipher的常量
+			cipher.init(Cipher.DECRYPT_MODE, secretKey, sRondom);
+			// 正式执行解密操作
+			byte[] decryptedData = cipher.doFinal(datab);
+			String decryptedDatas = new String(decryptedData);
+			return decryptedDatas;
+		} catch (Exception e) {
+			System.err.println("DES算法，解密出错。");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
 	 * 加密函数 CBC mode
 	 *
 	 * @param data
 	 *            加密数据
 	 * @param key
 	 *            密钥
-	 * @param iv           
-	 * 			  用来初始化cipher加密器的密钥 DEC CBC mode需要
+	 * @param iv
+	 *            用来初始化cipher加密器的密钥 DEC CBC mode需要
 	 * @return 返回加密后的数据
 	 */
 	public static byte[] CBCEncrypt(byte[] data, byte[] key, byte[] iv) {
@@ -144,8 +219,8 @@ public class DESUtil {
 	 *            解密数据
 	 * @param key
 	 *            密钥
-	 * @param iv           
-	 * 			  用来初始化cipher加密器的密钥 DEC CBC mode需要
+	 * @param iv
+	 *            用来初始化cipher加密器的密钥 DEC CBC mode需要
 	 * @return 返回解密后的数据
 	 */
 	public static byte[] CBCDecrypt(byte[] data, byte[] key, byte[] iv) {
@@ -168,18 +243,75 @@ public class DESUtil {
 		return null;
 	}
 
+	public static String byteToHexString(byte[] bytes) {
+		StringBuffer strbuffer = new StringBuffer();
+		for (byte b : bytes) {
+			int intb = b & 0xff;
+			String strb = Integer.toHexString(intb);
+			if (strb.length() < 2) {
+				strbuffer.append(0);
+			}
+			strbuffer.append(strb);
+		}
+		return strbuffer.toString();
+	}
+
+	public static byte[] hexStringToByte(String str) {
+		char[] halfbs = str.toCharArray();
+		int len = str.length() / 2;
+		byte[] bytes = new byte[len];
+		for (int i = 0; i < len; i++) {
+			int pos = i * 2;
+			char hx = halfbs[pos];
+			char lx = halfbs[pos + 1];
+			byte hb = hexCharToByte(hx);
+			byte lb = hexCharToByte(lx);
+			// System.out.println(hx+" "+lx+" "+hb+" "+lb);
+			int despair = hb << 4 | lb;
+			// System.out.println("d:"+despair);
+			bytes[i] = (byte) despair;
+			// System.out.println(bytes[i]);
+		}
+
+		return bytes;
+	}
+
+	public static byte hexCharToByte(char ch) {
+		return (byte) "0123456789abcdef".indexOf(ch);
+	}
+
 	public static void main(String[] args) {
-        try {
-            byte[] key = "11111111".getBytes();
-            byte[] iv = "22222222".getBytes();
-            byte[] data = DESUtil.encrypt("ebc-mode test".getBytes(), key);
-            System.out.print("EBC mode:");
-            System.out.println(new String(DESUtil.decrypt(data, key)));
-            System.out.print("CBC mode:");
-            data = DESUtil.CBCEncrypt("cbc %^&$*N()_>N{{mode test".getBytes(), key, iv);
-            System.out.println(new String(DESUtil.CBCDecrypt(data, key, iv)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-   }
+		try {
+			byte[] key = DES_KEY.getBytes();
+			System.out.print(byteToHexString(key));
+			byte[] iv = "22222222".getBytes();
+			byte[] data = DESUtil.encrypt("ebc-mode test".getBytes(), key);
+			for (byte b : data) {
+				System.out.print(b);
+			}
+			System.out.println(new String(DESUtil.decrypt(data, key)));
+			System.out.println("一结束");
+			// System.out.print("CBC mode:");
+			// data = DESUtil.CBCEncrypt("cbc %^&$*N()_>N{{mode
+			// test".getBytes(), key, iv);
+			// //System.out.println(new String(DESUtil.CBCDecrypt(data, key,
+			// iv)));
+
+			String data2 = DESUtil.encrypt("123-24123514345", DES_KEY);
+			System.out.println(data2);
+			System.out.println(DESUtil.decrypt("d6f9c33792b8b8f24d4cdcdae516eed96597caec68134613", DES_KEY));
+			System.out.println("二结束");
+
+			byte[] bs = { -128, 127, 11, 100 };
+			String str = byteToHexString(bs);
+			System.out.println(str);
+			byte[] bsa = hexStringToByte(str);
+			for (byte b : bsa) {
+				System.out.println(b);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

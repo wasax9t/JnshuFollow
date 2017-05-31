@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
-	
+
 	@Override
 	public boolean deleteByPrimaryKey(long id) {
 		return userMapper.deleteByPrimaryKey(id);
@@ -22,11 +22,11 @@ public class UserServiceImpl implements UserService {
 	public long insert(User user) {
 		return userMapper.insert(user);
 	}
-	
+
 	@Override
-    public long insertSelective(User user) {
-        return userMapper.insertSelective(user);
-    }
+	public long insertSelective(User user) {
+		return userMapper.insertSelective(user);
+	}
 
 	@Override
 	public User selectByPrimaryKey(long id) {
@@ -37,11 +37,11 @@ public class UserServiceImpl implements UserService {
 	public boolean updateByPrimaryKey(User user) {
 		return userMapper.updateByPrimaryKey(user);
 	}
-	
+
 	@Override
-    public boolean updateByPrimaryKeySelective(User user) {
-        return userMapper.updateByPrimaryKeySelective(user);
-    }
+	public boolean updateByPrimaryKeySelective(User user) {
+		return userMapper.updateByPrimaryKeySelective(user);
+	}
 
 	@Override
 	public User selectByName(String name) {

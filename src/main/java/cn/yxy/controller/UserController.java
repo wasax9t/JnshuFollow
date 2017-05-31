@@ -15,12 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
 import cn.yxy.util.CookieConstantTable;
+import cn.yxy.util.CookieUtil;
 import cn.yxy.util.DESUtil;
 
 @Controller
 public class UserController {
-
-	private final String DES_KEY = "just a DES-key";
 
 	@Autowired
 	private UserService userService;
@@ -37,40 +36,39 @@ public class UserController {
 	 * 登录校验
 	 */
 	@RequestMapping("/doLogin")
-	public ModelAndView checkLogin(@RequestParam("username") String username, @RequestParam("password") String password,
+	public String checkLogin(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam(name = "remember-me", required = false) boolean rememberMe, HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response, Model model) {
 		User remoteUser = userService.selectByName(username);
-		ModelAndView mavBack=new ModelAndView("redirect:login");
+		System.out.println(remoteUser);
 		if (remoteUser == null) {
 			// TODO 返回没有用户的一个参数，让js控制一句话显示或是弹窗
 			System.out.println("用户不存在");
-			return mavBack;
+			return "redirect:login";
 		}
 		if (!remoteUser.getPassword().equals(password)) {
 			// TODO 密码错误
 			System.out.println("密码错误");
 			System.out.println(remoteUser.getPassword());
 			System.out.println(password);
-			return mavBack;
+			return "redirect:login";
 		}
 		if (rememberMe == true) {
 			long id = remoteUser.getId();
 			long nowTime = System.currentTimeMillis();
-			String temps = id + "-" + nowTime;
-			byte[] data = temps.getBytes();
-			byte[] key = DES_KEY.getBytes();
-			String token = new String(DESUtil.encrypt(data, key));
-			System.out.println(token);
+			String data = id + "-" + nowTime;
+			System.out.println("data:" + data);
+			String token = DESUtil.encrypt(data, DESUtil.DES_KEY);
+			System.out.println("token:" + token);
 			Cookie cookie = new Cookie("token", token);
 			cookie.setMaxAge(CookieConstantTable.COOKIE_MAX_AGE);
 			response.addCookie(cookie);
 		}
-		
+
 		HttpSession session = request.getSession();
 		session.setAttribute("user", remoteUser);
-		ModelAndView mavGo=new ModelAndView("redirect:/u/home");
-		return mavGo;
+		model.addAttribute("user", remoteUser);
+		return "redirect:/u/home";
 	}
 
 	@RequestMapping("/doRegister")
@@ -88,8 +86,13 @@ public class UserController {
 	}
 
 	@RequestMapping("/logout")
-	public String logout() {
-
-		return "jnshuLogin";
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		session.setAttribute("user", null);
+//		Cookie ck=CookieUtil.getCookie(request, "token");
+//		ck.setMaxAge(0);
+//		ck.setValue(null);
+//		response.addCookie(ck);
+		return "redirect:login";
 	}
 }
