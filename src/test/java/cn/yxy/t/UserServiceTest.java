@@ -1,7 +1,5 @@
 package cn.yxy.t;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,15 +11,15 @@ public class UserServiceTest extends BaseTest {
 	@Autowired
 	private UserService userService;
 	
-//	@Test
-//	public void insertTest() {
-//		User user=new User();
-//		user.setid(2);
-//		user.setUserName("测试数据");
-//		user.setPassword("password");
-//		long id=userService.insert(user);
-//		System.out.println(id);
-//	}
+	@Test
+	public void insertTest() {
+		User user=new User();
+		user.setId(2);
+		user.setName("测试数据");
+		user.setPassword("password");
+		long id=userService.insert(user);
+		System.out.println(id);
+	}
 	
 	@Test
 	public void selectByNameTest(){

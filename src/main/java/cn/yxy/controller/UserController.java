@@ -11,12 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
 import cn.yxy.util.CookieConstantTable;
 import cn.yxy.util.CookieUtil;
 import cn.yxy.util.DESUtil;
+import cn.yxy.util.EncryptionUtil;
 
 @Controller
 public class UserController {
@@ -38,7 +40,7 @@ public class UserController {
 	@RequestMapping("/doLogin")
 	public String checkLogin(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam(name = "remember-me", required = false) boolean rememberMe, HttpServletRequest request,
-			HttpServletResponse response, Model model) {
+			HttpServletResponse response, RedirectAttributes redierctAttr) {
 		User remoteUser = userService.selectByName(username);
 		System.out.println(remoteUser);
 		if (remoteUser == null) {
@@ -46,53 +48,73 @@ public class UserController {
 			System.out.println("用户不存在");
 			return "redirect:login";
 		}
-		if (!remoteUser.getPassword().equals(password)) {
+		String MD5password = EncryptionUtil.md5Hex(username+password);
+		if (!remoteUser.getPassword().equals(MD5password)) {
 			// TODO 密码错误
 			System.out.println("密码错误");
-			System.out.println(remoteUser.getPassword());
-			System.out.println(password);
+//			System.out.println(remoteUser.getPassword());
+//			System.out.println(password);
 			return "redirect:login";
 		}
 		if (rememberMe == true) {
 			long id = remoteUser.getId();
 			long nowTime = System.currentTimeMillis();
 			String data = id + "-" + nowTime;
-			System.out.println("data:" + data);
 			String token = DESUtil.encrypt(data, DESUtil.DES_KEY);
-			System.out.println("token:" + token);
+//			System.out.println("data:" + data);
+//			System.out.println("token:" + token);
 			Cookie cookie = new Cookie("token", token);
 			cookie.setMaxAge(CookieConstantTable.COOKIE_MAX_AGE);
 			response.addCookie(cookie);
-		}
+			redierctAttr.addFlashAttribute("user", remoteUser);
 
-		HttpSession session = request.getSession();
-		session.setAttribute("user", remoteUser);
-		model.addAttribute("user", remoteUser);
+		}else{
+			HttpSession session = request.getSession();
+			session.setAttribute("user", remoteUser);
+		}
 		return "redirect:/u/home";
 	}
 
+	/**
+	 * 注册校检
+	 * @param username
+	 * @param password
+	 * @param email
+	 * @param model
+	 * 			为了给页面传用户名
+	 * @return 一个注册成功的页面
+	 */
 	@RequestMapping("/doRegister")
 	public String checkRegister(@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("email") String email, Model model) {
 		User user = new User();
 		user.setName(username);
-		user.setPassword(password);
+		String MD5password = EncryptionUtil.md5Hex(username+password);
+		user.setPassword(MD5password);
 		user.setEmail(email);
 		// TODO username重复
 		user.setCreateAt(System.currentTimeMillis());
 		userService.insert(user);
-		model.addAttribute("message", username);
+		model.addAttribute("username", username);
 		return "jnshuRAfter";
 	}
 
+	/**
+	 * 登出执行，注销session和cookie
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		session.setAttribute("user", null);
-//		Cookie ck=CookieUtil.getCookie(request, "token");
-//		ck.setMaxAge(0);
-//		ck.setValue(null);
-//		response.addCookie(ck);
+		Cookie ck=CookieUtil.getCookie(request, "token");
+		if(ck != null){
+			ck.setMaxAge(0);
+			ck.setValue(null);
+			response.addCookie(ck);
+		}
 		return "redirect:login";
 	}
 }

@@ -1,3 +1,4 @@
+package cn.yxy.zzznotused;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
