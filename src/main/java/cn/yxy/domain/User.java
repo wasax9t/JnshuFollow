@@ -1,6 +1,13 @@
 package cn.yxy.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
+	/**
+	 * 为了给xmemcached序列化
+	 */
+	private static final long serialVersionUID = 3152556859380568274L;
+
 	private Long id;
 
 	private String name;
@@ -59,5 +66,11 @@ public class User {
 
 	public void setUpdateAt(Long updateAt) {
 		this.updateAt = updateAt;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", createAt="
+				+ createAt + ", updateAt=" + updateAt + "]";
 	}
 }

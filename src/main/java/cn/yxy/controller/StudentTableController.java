@@ -28,10 +28,10 @@ public class StudentTableController {
 	}
 
 	@RequiredTS
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String loginController(Model model, @RequestBody Student stu) {
 		long id = studentService.insert(stu);
-		model.addAttribute("message", "注册成功了吧，你的ID是：" + id);
+		model.addAttribute("message", "插入成功了吧，你的ID是：" + id);
 		return "student/home";
 	}
 

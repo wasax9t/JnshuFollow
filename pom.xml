@@ -15,6 +15,23 @@
 	</properties>
 
 	<dependencies>
+		<!-- redis支持项 -->
+		<dependency>  
+            <groupId>org.springframework.data</groupId>  
+            <artifactId>spring-data-redis</artifactId>  
+            <version>1.4.0.RELEASE</version>  
+    	</dependency>
+        <dependency>  
+            <groupId>redis.clients</groupId>  
+            <artifactId>jedis</artifactId>  
+            <version>2.6.0</version>  
+     	</dependency>
+		<!-- xmemcached客户端 -->
+		<dependency>
+    		<groupId>com.googlecode.xmemcached</groupId>
+    		<artifactId>xmemcached</artifactId>
+    		<version>2.3.1</version>
+		</dependency>
 		<!-- 加密工具包 -->
 		<dependency>
     		<groupId>commons-codec</groupId>

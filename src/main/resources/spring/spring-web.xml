@@ -54,7 +54,7 @@
 		</property>
 	</bean>
 	
-	<!-- 默认的视图 -->
+	<!-- 默认的视图解析 -->
 	<bean id="internalResourceViewResolver" 
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

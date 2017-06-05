@@ -1,5 +1,7 @@
 package cn.yxy.controller;
 
+import java.util.Random;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +36,19 @@ public class UserController {
 		return "jnshuUserHome";
 	}
 
+	/**
+	 * 一个不用tiles，用来压力测试的假页面
+	 */
+	@RequestMapping("/cachetest")
+	public String cacheTest(Model model) {
+		Random random=new Random(System.currentTimeMillis());
+		long id=random.nextInt(9);
+		if(id==5||id==6||id==0){id=8;}
+		User user=userService.selectByPrimaryKey(id);
+		model.addAttribute("user", user);
+		return "cacheTest";
+	}
+	
 	/**
 	 * 登录校验
 	 */

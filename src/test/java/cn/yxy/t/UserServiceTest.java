@@ -2,16 +2,26 @@ package cn.yxy.t;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
+import net.rubyeye.xmemcached.MemcachedClient;
 
 public class UserServiceTest extends BaseTest {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private MemcachedClient memcachedClient;
+	@Autowired
+	private RedisTemplate<String,User> redisTemplate;
+	private ValueOperations<String,User> operations;
 	
-	@Test
+	
+	
+	
 	public void insertTest() {
 		User user=new User();
 		user.setId(2);
@@ -21,11 +31,19 @@ public class UserServiceTest extends BaseTest {
 		System.out.println(id);
 	}
 	
-	@Test
+
 	public void selectByNameTest(){
 		String name="test";
 		User result=userService.selectByName(name);
 		System.out.println(result.getPassword());
 		//我看看是报错还是
+	}
+	
+	@Test
+	public void selectByIdTest(){
+		User result=userService.selectByPrimaryKey(3);
+		System.out.println(result.getPassword());
+//		String value=(String) memcachedClient.get("test");
+//		System.out.println(value);
 	}
 }
