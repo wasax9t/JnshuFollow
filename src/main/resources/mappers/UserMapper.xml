@@ -10,7 +10,7 @@
     <result column="update_at" jdbcType="BIGINT" property="updateAt" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, password, email, create_at, update_at
+    id, name, password, email, phone_numble, avatar_link, create_at, update_at
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -119,5 +119,14 @@
       <if test="email != null" >
         and email = #{email,jdbcType=VARCHAR}
       </if>
+  </select>
+  
+  <select id="selectByNameLike" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	<!-- <bind name="pattern" value="'%' + _parameter.getTitle() + '%'" /> -->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where name 
+    like #{name} 
   </select>
 </mapper>

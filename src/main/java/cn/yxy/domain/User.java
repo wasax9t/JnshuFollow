@@ -9,16 +9,16 @@ public class User implements Serializable{
 	private static final long serialVersionUID = 3152556859380568274L;
 
 	private Long id;
-
 	private String name;
-
 	private String password;
-
 	private String email;
-
+	private Long phoneNumble;
+	private String avatarLink;
+	
 	private Long createAt;
-
 	private Long updateAt;
+	
+	
 
 	public Long getId() {
 		return id;
@@ -68,9 +68,26 @@ public class User implements Serializable{
 		this.updateAt = updateAt;
 	}
 
+	public long getPhoneNumble() {
+		return phoneNumble;
+	}
+
+	public void setPhoneNumble(long phoneNumble) {
+		this.phoneNumble = phoneNumble;
+	}
+
+	public String getAvatarLink() {
+		return avatarLink;
+	}
+
+	public void setAvatarLink(String avatarLink) {
+		this.avatarLink = avatarLink;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", createAt="
-				+ createAt + ", updateAt=" + updateAt + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", phoneNumble="
+				+ phoneNumble + ", avatarLink=" + avatarLink + ", createAt=" + createAt + ", updateAt=" + updateAt
+				+ "]";
 	}
 }

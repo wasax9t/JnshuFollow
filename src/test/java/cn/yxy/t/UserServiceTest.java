@@ -1,5 +1,7 @@
 package cn.yxy.t;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -20,8 +22,6 @@ public class UserServiceTest extends BaseTest {
 	private ValueOperations<String,User> operations;
 	
 	
-	
-	
 	public void insertTest() {
 		User user=new User();
 		user.setId(2);
@@ -40,6 +40,13 @@ public class UserServiceTest extends BaseTest {
 	}
 	
 	@Test
+	public void selectByNameLikeTest(){
+		List<User> result=userService.selectByNameLike("t");
+		System.out.println(result);
+		//我看看是报错还是
+	}
+	
+	
 	public void selectByIdTest(){
 		User result=userService.selectByPrimaryKey(3);
 		System.out.println(result.getPassword());

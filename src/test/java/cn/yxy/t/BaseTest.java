@@ -6,7 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "classpath:spring/spring-dao.xml",
-	"classpath:spring/spring-service.xml" })
+	"classpath:spring/spring-service.xml", "classpath:spring/spring-sdk.xml" })
 public abstract class BaseTest {
 
 }

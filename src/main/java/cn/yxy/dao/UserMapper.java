@@ -1,5 +1,7 @@
 package cn.yxy.dao;
 
+import java.util.List;
+
 import cn.yxy.domain.User;
 
 public interface UserMapper {
@@ -24,4 +26,6 @@ public interface UserMapper {
 	 * 根据用户名查用户详情
 	 */
 	User selectByName(String name);
+
+	List<User> selectByNameLike(String str);
 }

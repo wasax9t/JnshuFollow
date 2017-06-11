@@ -1,5 +1,7 @@
 package cn.yxy.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User selectByName(String name) {
 		return userMapper.selectByName(name);
+	}
+	
+	@Override
+	public List<User> selectByNameLike(String str){
+		String name='%'+str+'%';
+		return userMapper.selectByNameLike(name);
 	}
 
 }

@@ -15,6 +15,14 @@
 	</properties>
 
 	<dependencies>
+		<!-- 容联依赖项 -->
+		<dependency>
+    		<groupId>org.yuntongxun</groupId>
+    		<artifactId>ccp-sdk</artifactId>
+    		<version>0.1.0</version>
+		</dependency>
+		<!-- 七牛SDK -->
+		
 		<!-- redis支持项 -->
 		<dependency>  
             <groupId>org.springframework.data</groupId>  
@@ -44,17 +52,19 @@
 		    <groupId>org.mybatis.generator</groupId>
  		    <artifactId>mybatis-generator-core</artifactId>
 		    <version>1.3.4</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
     		<groupId>org.mybatis.generator</groupId>
     		<artifactId>mybatis-generator-maven-plugin</artifactId>
     		<version>1.3.4</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- tiles整包，也可单独引入jsp、servlet、template、el -->
 		<dependency>
     		<groupId>org.apache.tiles</groupId>
     		<artifactId>tiles-extras</artifactId>
-   		 <version>3.0.7</version>
+   		 	<version>3.0.7</version>
 		</dependency>
 		<!-- jackson包，支持json -->
 		<dependency>

@@ -1,5 +1,7 @@
 package cn.yxy.service;
 
+import java.util.List;
+
 import cn.yxy.domain.User;
 
 public interface UserService {
@@ -21,4 +23,8 @@ public interface UserService {
 	 */
 	User selectByName(String name);
 
+	/**
+	 * 查询批量用户
+	 */
+	List<User> selectByNameLike(String str);
 }
