@@ -16,27 +16,27 @@ import cn.yxy.service.StudentService;
 @RequestMapping("/")
 public class JnshuController {
 
-	@Autowired
-	private StudentService studentService;
+    @Autowired
+    private StudentService studentService;
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String homePage(ModelMap model) {
-		List<Student> list = new ArrayList<Student>();
-		list.add(studentService.get(1));
-		list.add(studentService.get(2));
-		list.add(studentService.get(3));
-		list.add(studentService.get(4));
-		model.addAttribute("studentList", list);
-		return "jnshuHome";
-	}
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    public String homePage(ModelMap model) {
+        List<Student> list = new ArrayList<Student>();
+        list.add(studentService.get(1));
+        list.add(studentService.get(2));
+        list.add(studentService.get(3));
+        list.add(studentService.get(4));
+        model.addAttribute("studentList", list);
+        return "jnshuHome";
+    }
 
-	@RequestMapping(value = { "/profession" }, method = RequestMethod.GET)
-	public String professionPage(ModelMap model) {
-		return "jnshuProfession";
-	}
+    @RequestMapping(value = {"/profession"}, method = RequestMethod.GET)
+    public String professionPage(ModelMap model) {
+        return "jnshuProfession";
+    }
 
-	@RequestMapping(value = { "/time" }, method = RequestMethod.GET)
-	public String timePage(ModelMap model) {
-		return "jnshuTime";
-	}
+    @RequestMapping(value = {"/time"}, method = RequestMethod.GET)
+    public String timePage(ModelMap model) {
+        return "jnshuTime";
+    }
 }

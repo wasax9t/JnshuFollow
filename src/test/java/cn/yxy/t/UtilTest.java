@@ -11,10 +11,10 @@ public class UtilTest extends BaseTest {
 
 //	@Autowired
 //	private CCPSDKUtil csu;
-	
-	@Test
-	public void ccpTest(){
-		CCPSDKUtil.sendVerificationCode("18854508212", "123456", "2");
-		
-	}
+
+    @Test
+    public void ccpTest() {
+        CCPSDKUtil.sendVerificationCode("18854508212", "123456", "2");
+
+    }
 }

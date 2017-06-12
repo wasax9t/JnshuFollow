@@ -17,38 +17,39 @@ import net.rubyeye.xmemcached.exception.MemcachedException;
 @Component
 public class MemcachedSeviceAOP {
 
-	@Autowired
-	private MemcachedClient memcachedClient;
-	
-	@Pointcut("execution(* cn.yxy.service.impl.UserServiceImpl.*(..))")
-	public void UserCachedPointcut(){}
-	
-	@Around("UserCachedPointcut()&&args(id)")
-	public User findByIdCache(ProceedingJoinPoint call, long id){
-		User user=null;
-		String key="findById_"+id;
-		try {
-			user=(User) memcachedClient.get(key);
-		} catch (TimeoutException | InterruptedException | MemcachedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		if(user==null){
-			try {
-				user=(User) call.proceed();
-			} catch (Throwable e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			boolean stored;
-			try {
-				stored = memcachedClient.set(key,0, user);
+    @Autowired
+    private MemcachedClient memcachedClient;
+
+    @Pointcut("execution(* cn.yxy.service.impl.UserServiceImpl.*(..))")
+    public void UserCachedPointcut() {
+    }
+
+    @Around("UserCachedPointcut()&&args(id)")
+    public User findByIdCache(ProceedingJoinPoint call, long id) {
+        User user = null;
+        String key = "findById_" + id;
+        try {
+            user = memcachedClient.get(key);
+        } catch (TimeoutException | InterruptedException | MemcachedException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        if (user == null) {
+            try {
+                user = (User) call.proceed();
+            } catch (Throwable e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            boolean stored;
+            try {
+                stored = memcachedClient.set(key, 0, user);
 //				System.out.println("when user==null "+user+"stored?"+stored);
-			} catch (TimeoutException | InterruptedException | MemcachedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return user;
-	}
+            } catch (TimeoutException | InterruptedException | MemcachedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        return user;
+    }
 }

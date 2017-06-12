@@ -12,41 +12,41 @@ import cn.yxy.service.StudentService;
 @Qualifier("StudentService")
 public class StudentServiceImpl implements StudentService {
 
-	@Autowired
-	private StudentMapper stuDAO;
+    @Autowired
+    private StudentMapper stuDAO;
 
-	@RequiredTS
-	public long insert(Student stu) {
+    @RequiredTS
+    public long insert(Student stu) {
 
-		stuDAO.insert(stu);
-		return stu.getid();
-	}
+        stuDAO.insert(stu);
+        return stu.getid();
+    }
 
-	@RequiredTS
-	public boolean delete(long id) {
-		boolean tf = stuDAO.deleteByid(id);
-		return tf;
-	}
+    @RequiredTS
+    public boolean delete(long id) {
+        boolean tf = stuDAO.deleteByid(id);
+        return tf;
+    }
 
-	@RequiredTS
-	public boolean update(Student stu) {
-		boolean tf = stuDAO.update(stu);
+    @RequiredTS
+    public boolean update(Student stu) {
+        boolean tf = stuDAO.update(stu);
 
-		return tf;
-	}
+        return tf;
+    }
 
-	@RequiredTS
-	public Student get(long id) {
-		Student stu = stuDAO.getByid(id);
+    @RequiredTS
+    public Student get(long id) {
+        Student stu = stuDAO.getByid(id);
 
-		return stu;
-	}
+        return stu;
+    }
 
-	@RequiredTS
-	public Student get(String name) {
-		Student stu = stuDAO.getByName(name);
+    @RequiredTS
+    public Student get(String name) {
+        Student stu = stuDAO.getByName(name);
 
-		return stu;
-	}
+        return stu;
+    }
 
 }

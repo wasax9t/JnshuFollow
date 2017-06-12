@@ -13,44 +13,44 @@ import net.rubyeye.xmemcached.MemcachedClient;
 
 public class UserServiceTest extends BaseTest {
 
-	@Autowired
-	private UserService userService;
-	@Autowired
-	private MemcachedClient memcachedClient;
-	@Autowired
-	private RedisTemplate<String,User> redisTemplate;
-	private ValueOperations<String,User> operations;
-	
-	
-	public void insertTest() {
-		User user=new User();
-		user.setId(2);
-		user.setName("测试数据");
-		user.setPassword("password");
-		long id=userService.insert(user);
-		System.out.println(id);
-	}
-	
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private MemcachedClient memcachedClient;
+    @Autowired
+    private RedisTemplate<String, User> redisTemplate;
+    private ValueOperations<String, User> operations;
 
-	public void selectByNameTest(){
-		String name="test";
-		User result=userService.selectByName(name);
-		System.out.println(result.getPassword());
-		//我看看是报错还是
-	}
-	
-	@Test
-	public void selectByNameLikeTest(){
-		List<User> result=userService.selectByNameLike("t");
-		System.out.println(result);
-		//我看看是报错还是
-	}
-	
-	
-	public void selectByIdTest(){
-		User result=userService.selectByPrimaryKey(3);
-		System.out.println(result.getPassword());
+
+    public void insertTest() {
+        User user = new User();
+        user.setId(2);
+        user.setName("测试数据");
+        user.setPassword("password");
+        long id = userService.insert(user);
+        System.out.println(id);
+    }
+
+
+    public void selectByNameTest() {
+        String name = "test";
+        User result = userService.selectByName(name);
+        System.out.println(result.getPassword());
+        //我看看是报错还是
+    }
+
+    @Test
+    public void selectByNameLikeTest() {
+        List<User> result = userService.selectByNameLike("t");
+        System.out.println(result);
+        //我看看是报错还是
+    }
+
+
+    public void selectByIdTest() {
+        User result = userService.selectByPrimaryKey(3);
+        System.out.println(result.getPassword());
 //		String value=(String) memcachedClient.get("test");
 //		System.out.println(value);
-	}
+    }
 }

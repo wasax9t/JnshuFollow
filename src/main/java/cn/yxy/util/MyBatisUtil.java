@@ -9,22 +9,22 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 //也不用了
 public class MyBatisUtil {
-	private static SqlSessionFactory factory;
+    private static SqlSessionFactory factory;
 
-	private MyBatisUtil() {
-	}
+    private MyBatisUtil() {
+    }
 
-	static {
-		Reader reader = null;
-		try {
-			reader = Resources.getResourceAsReader("mybatis-config.xml");
-		} catch (IOException e) {
-			throw new RuntimeException(e.getMessage());
-		}
-		factory = new SqlSessionFactoryBuilder().build(reader);
-	}
+    static {
+        Reader reader = null;
+        try {
+            reader = Resources.getResourceAsReader("mybatis-config.xml");
+        } catch (IOException e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        factory = new SqlSessionFactoryBuilder().build(reader);
+    }
 
-	public static SqlSessionFactory getSqlSessionFactory() {
-		return factory;
-	}
+    public static SqlSessionFactory getSqlSessionFactory() {
+        return factory;
+    }
 }
