@@ -27,6 +27,7 @@ public class CCPSDKUtil {
         restAPI.init(SERVER_IP, SERVER_PORT);
         restAPI.setAccount(accountSid, authToken);
         restAPI.setAppId(appId);
+        System.out.println("初始化完成CCP-SDK");
     }
 
     public static boolean sendVerificationCode(String phoneNumble, String placeH1, String placeH2) {

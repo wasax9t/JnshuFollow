@@ -14,4 +14,16 @@
         <property name="authToken" value="4f0e0838a0c14d67b227e06c40ba7a24"/>
         <property name="appId" value="8a216da85c62c9ad015c7cb6e6f8091b"/>
     </bean>
+
+    <bean id="SendCloudAPI" class="cn.yxy.util.api.SendCloudAPI">
+        <property name="apiUser" value="wasax9t_test_63mMWr"/>
+        <property name="apiKey" value="hy4eLLvKsAkSZHlf"/>
+    </bean>
+
+    <bean id="QiniuToken" class="cn.yxy.util.api.QiniuToken">
+        <!--<constructor-arg index="0" value="XWS2jhA5QUAABgcZcizWu_vTfTWSmJB_5YQXx79Z"/>
+        <constructor-arg index="1" value="tGDl9ZniWrSQPfJmx8Ht0VdLZe6j7K3B-DRj7hgb"/>-->
+        <property name="accessKey" value="XWS2jhA5QUAABgcZcizWu_vTfTWSmJB_5YQXx79Z"/>
+        <property name="secretKey" value="tGDl9ZniWrSQPfJmx8Ht0VdLZe6j7K3B-DRj7hgb"/>
+    </bean>
 </beans>

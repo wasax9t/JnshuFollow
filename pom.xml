@@ -38,7 +38,11 @@
             <version>0.1.0</version>
         </dependency>
         <!-- 七牛SDK -->
-		
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>[7.2.0, 7.2.99]</version>
+        </dependency>
         <!-- redis支持项 -->
         <dependency>
             <groupId>org.springframework.data</groupId>

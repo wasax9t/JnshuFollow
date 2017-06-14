@@ -3,6 +3,8 @@ package cn.yxy.controller;
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
 import cn.yxy.util.MathUtil;
+import cn.yxy.util.api.QiniuToken;
+import cn.yxy.util.api.SendCloudAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import cn.yxy.util.CCPSDKUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/action")
@@ -33,8 +36,8 @@ public class Action {
         HttpSession session=request.getSession();
         session.setAttribute("code", code);
         session.setMaxInactiveInterval(expiration*60+5);
-//        boolean re = CCPSDKUtil.sendVerificationCode("18854508212", code, Integer.toString(expiration));
-        if (true) return true;
+        boolean re = CCPSDKUtil.sendVerificationCode("18854508212", code, Integer.toString(expiration));
+        if (re) return true;
         else return false;
     }
 
@@ -48,5 +51,23 @@ public class Action {
         }else{
             return true;
         }
+    }
+
+    @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendEmail(String email) throws IOException {
+        String re= SendCloudAPI.send_common(email);
+        return re;
+    }
+
+//    @Autowired
+//    QiniuToken qiniuToken;
+
+    @RequestMapping(value = "/qiniuToken")
+    @ResponseBody
+    public String qiniuToken() {
+
+        String re= QiniuToken.getUpToken();
+        return re;
     }
 }
