@@ -31,14 +31,12 @@ public class MemcachedSeviceAOP {
         try {
             user = memcachedClient.get(key);
         } catch (TimeoutException | InterruptedException | MemcachedException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         if (user == null) {
             try {
                 user = (User) call.proceed();
             } catch (Throwable e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             boolean stored;

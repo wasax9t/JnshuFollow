@@ -74,7 +74,7 @@
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 注入数据库连接池 -->
-        <property name="dataSource" ref="jdbcDataSource"/>
+        <property name="dataSource" ref="c3p0DataSource"/>
     </bean>
 
     <!-- 配置基于注解的声明式事务 -->

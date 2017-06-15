@@ -36,14 +36,12 @@ public class UserServiceTest extends BaseTest {
         String name = "test";
         User result = userService.selectByName(name);
         System.out.println(result.getPassword());
-        //我看看是报错还是
     }
 
     @Test
     public void selectByNameLikeTest() {
         List<User> result = userService.selectByNameLike("t");
         System.out.println(result);
-        //我看看是报错还是
     }
 
 
