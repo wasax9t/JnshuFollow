@@ -2,24 +2,20 @@ package cn.yxy.controller;
 
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
-import cn.yxy.util.IPDefence;
 import cn.yxy.util.MathUtil;
-import cn.yxy.util.api.AliyunOSS;
 import cn.yxy.util.api.QiniuToken;
 import cn.yxy.util.api.SendCloudAPI;
-import com.aliyun.oss.OSSClient;
-import com.aliyun.oss.model.PutObjectResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.yxy.util.api.CCPSDKUtil;
+import cn.yxy.util.CCPSDKUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -28,9 +24,6 @@ public class Action {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private IPDefence ipDefence;
 
     @RequestMapping(value = "/verificationCode", method = RequestMethod.POST)
     @ResponseBody
@@ -62,11 +55,7 @@ public class Action {
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
     @ResponseBody
-    public String sendEmail(String email, HttpServletRequest request) throws IOException {
-        System.out.println("点击");
-        if (!ipDefence.check(request)) {
-            return "请求次数过多";
-        }
+    public String sendEmail(String email) throws IOException {
         String re= SendCloudAPI.send_common(email);
         return re;
     }
@@ -80,12 +69,5 @@ public class Action {
 
         String re= QiniuToken.getUpToken();
         return re;
-    }
-
-    @RequestMapping(value = "/aliyunOSS")
-    @ResponseBody
-    public String aliyunOSS() {
-        String etag = AliyunOSS.putFile("testFile.png", new File("E:\\Pictures\\20170318.png"));
-        return etag;
     }
 }

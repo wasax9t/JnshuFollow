@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TimeSpend {
 
-    private Logger logger = LogManager.getLogger(this.getClass());
+    private static Logger logger = LogManager.getLogger(TimeSpend.class);
     private long startTime;
 
     // @Pointcut("execution(*
@@ -35,8 +35,8 @@ public class TimeSpend {
     }
 
     @After("loggingOperation()")
-    public void after(JoinPoint joinPoint) throws NoSuchMethodException {
+    public void after(JoinPoint joinPoint) {
         long timeSpend = System.currentTimeMillis() - startTime;
-        logger.info("The mothed [" + joinPoint.getTarget().getClass().getName() + "] used " + timeSpend + "ms");
+        logger.info("The mothed [" + joinPoint.getSignature().getName() + "] used " + timeSpend + "ms");
     }
 }

@@ -1,8 +1,11 @@
 package cn.yxy.t;
 
-import org.junit.Test;
+import javax.annotation.Resource;
 
-import cn.yxy.util.api.CCPSDKUtil;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.yxy.util.CCPSDKUtil;
 
 public class UtilTest extends BaseTest {
 

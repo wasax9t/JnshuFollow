@@ -9,27 +9,21 @@
 
     <context:component-scan base-package="cn.yxy.util"/>
 
-    <bean id="CCPSDKUtil" class="cn.yxy.util.api.CCPSDKUtil">
-        <property name="accountSid" value="${ronglian.accountSid}"/>
-        <property name="authToken" value="${ronglian.authToken}"/>
-        <property name="appId" value="${ronglian.appId}"/>
+    <bean id="CCPSDKUtil" class="cn.yxy.util.CCPSDKUtil">
+        <property name="accountSid" value="8a216da85c62c9ad015c7cb6e5ae0915"/>
+        <property name="authToken" value="4f0e0838a0c14d67b227e06c40ba7a24"/>
+        <property name="appId" value="8a216da85c62c9ad015c7cb6e6f8091b"/>
     </bean>
 
     <bean id="SendCloudAPI" class="cn.yxy.util.api.SendCloudAPI">
-        <property name="apiUser" value="${sendCloud.apiUser}"/>
-        <property name="apiKey" value="${sendCloud.apiKey}"/>
+        <property name="apiUser" value="wasax9t_test_63mMWr"/>
+        <property name="apiKey" value="hy4eLLvKsAkSZHlf"/>
     </bean>
 
     <bean id="QiniuToken" class="cn.yxy.util.api.QiniuToken">
-        <!--<constructor-arg index="0" value="${qiniu.accessKey}"/>
-        <constructor-arg index="1" value="${qiniu.secretKey}"/>-->
-        <property name="accessKey" value="${qiniu.accessKey}"/>
-        <property name="secretKey" value="${qiniu.secretKey}"/>
-    </bean>
-
-    <bean id="AliyunOSS" class="cn.yxy.util.api.AliyunOSS">
-        <property name="endpoint" value="${aliyun.endpoint}"/>
-        <property name="accessKeyId" value="${aliyun.accessKeyId}"/>
-        <property name="accessKeySecret" value="${aliyun.accessKeySecret}"/>
+        <!--<constructor-arg index="0" value="XWS2jhA5QUAABgcZcizWu_vTfTWSmJB_5YQXx79Z"/>
+        <constructor-arg index="1" value="tGDl9ZniWrSQPfJmx8Ht0VdLZe6j7K3B-DRj7hgb"/>-->
+        <property name="accessKey" value="XWS2jhA5QUAABgcZcizWu_vTfTWSmJB_5YQXx79Z"/>
+        <property name="secretKey" value="tGDl9ZniWrSQPfJmx8Ht0VdLZe6j7K3B-DRj7hgb"/>
     </bean>
 </beans>
