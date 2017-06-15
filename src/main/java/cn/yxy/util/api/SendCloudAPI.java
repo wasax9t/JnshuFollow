@@ -19,8 +19,6 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/6/12.
  */
-
-@Component
 public class SendCloudAPI {
 
     private String apiUser;
@@ -37,11 +35,9 @@ public class SendCloudAPI {
 //        httpClient;
         params.add(new BasicNameValuePair("apiUser", apiUser));
         params.add(new BasicNameValuePair("apiKey", apiKey));
-        System.out.println("初始化完成SendCloud");
     }
 
     public static String send_common(String email) throws IOException {
-
         final String rcpt_to = email;
 
         String subject = "我是标题";//标题
@@ -60,7 +56,7 @@ public class SendCloudAPI {
         String re="未发送成功";
         // 处理响应
         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-            // 正常返回, 解析返回数据
+            //TODO 正常返回, 解析返回数据
             re = EntityUtils.toString(response.getEntity());
         } else {
             System.err.println("error");

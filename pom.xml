@@ -15,6 +15,12 @@
     </properties>
 
     <dependencies>
+        <!-- aliyun OSS SDK -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>2.6.0</version>
+        </dependency>
         <!-- webAPI使用支持 -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
