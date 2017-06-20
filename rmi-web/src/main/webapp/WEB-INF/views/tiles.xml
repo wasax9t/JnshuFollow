@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!-- 这里定义了布局的各组件来源及组合继承 -->
+<tiles-definitions>
+
+    <!-- jnshu Base Definition -->
+    <definition name="jnshu-definition"
+                template="/WEB-INF/views/tiles/layouts/jnshuLayout.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/tiles/template/jnshuHeader.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/jnshuFooter.jsp"/>
+    </definition>
+
+    <!-- jnshu Login Page -->
+    <definition name="jnshuLogin" extends="jnshu-definition">
+        <put-attribute name="title" value="Jnshudemo Login"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/jnshuLogin.jsp"/>
+    </definition>
+
+    <!-- jnshu Home Page -->
+    <definition name="jnshuHome" extends="jnshu-definition">
+        <put-attribute name="title" value="Jnshudemo Home"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/jnshuHome.jsp"/>
+    </definition>
+
+    <!-- jnshu profession Page -->
+    <definition name="jnshuProfession" extends="jnshu-definition">
+        <put-attribute name="title" value="Jnshudemo Profession"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/jnshuProfession.jsp"/>
+    </definition>
+
+    <!-- jnshu UserHome Page -->
+    <definition name="jnshuUserHome" extends="jnshu-definition">
+        <put-attribute name="title" value="Jnshudemo UserHome"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/jnshuUserHome.jsp"/>
+    </definition>
+
+    <!-- jnshu time Page -->
+    <definition name="jnshuTime" extends="jnshu-definition">
+        <put-attribute name="title" value="Jnshudemo elFunction.tld test"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/jnshuTime.jsp"/>
+    </definition>
+
+    <!-- Base Definition -->
+    <definition name="base-definition"
+                template="/src/else/defaultLayout.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/src/else/defaultHeader.jsp"/>
+        <put-attribute name="menu" value="/src/else/defaultMenu.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/src/else/defaultFooter.jsp"/>
+    </definition>
+
+</tiles-definitions>

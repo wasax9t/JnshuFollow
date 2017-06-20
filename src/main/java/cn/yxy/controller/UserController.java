@@ -112,11 +112,13 @@ public class UserController {
         user.setEmail(email);
         // TODO username重复
         user.setCreateAt(System.currentTimeMillis());
-        userService.insert(user);
         HttpSession session=request.getSession();
         String code= (String) session.getAttribute("code");
-        System.out.println(code+" "+verificationCode);
+        if(code==null){
+            model.addAttribute("status","服务器无验证码");
+        }
         if(code.equals(verificationCode)){
+            userService.insert(user);
             model.addAttribute("username", username);
             model.addAttribute("status","登陆成功");
         }else{

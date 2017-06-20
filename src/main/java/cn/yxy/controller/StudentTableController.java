@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.yxy.aoplog.RequiredTS;
+import cn.yxy.aop.RequiredTS;
 import cn.yxy.domain.Student;
 import cn.yxy.service.StudentService;
 

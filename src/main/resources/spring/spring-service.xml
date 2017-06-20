@@ -16,7 +16,7 @@
 
     <!-- 使用springAOP -->
     <aop:aspectj-autoproxy/>
-    <context:component-scan base-package="cn.yxy.aoplog"/>
+    <context:component-scan base-package="cn.yxy.aop"/>
 
     <!-- XMemcachedClientBuilder在spring3后只能用factory方法来配置 -->
     <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">

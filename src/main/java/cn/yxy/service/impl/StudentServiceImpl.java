@@ -3,7 +3,7 @@ package cn.yxy.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import cn.yxy.aoplog.RequiredTS;
+import cn.yxy.aop.RequiredTS;
 import cn.yxy.dao.StudentMapper;
 import cn.yxy.domain.Student;
 import cn.yxy.service.StudentService;

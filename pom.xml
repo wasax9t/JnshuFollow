@@ -5,7 +5,11 @@
     <groupId>com.company.projectgroup</groupId>
     <artifactId>jnshu-follow</artifactId>
     <version>0.1.0</version>
-    <packaging>war</packaging>
+    <modules>
+        <module>rmi-service</module>
+        <module>rmi-web</module>
+    </modules>
+    <packaging>pom</packaging>
     <name>JnshuFollow</name>
     <url>http://maven.apache.org</url>
 

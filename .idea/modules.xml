@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JnshuFollow.iml" filepath="$PROJECT_DIR$/JnshuFollow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi-service/rmi-service.iml" filepath="$PROJECT_DIR$/rmi-service/rmi-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi-web/rmi-web.iml" filepath="$PROJECT_DIR$/rmi-web/rmi-web.iml" />
     </modules>
   </component>
 </project>

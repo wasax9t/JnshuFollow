@@ -20,6 +20,7 @@
     <!-- 2.静态资源默认servlet配置 (1)加入对静态资源的处理：js,gif,png (2)允许使用"/"做整体映射 
     <mvc:default-servlet-handler /> -->
 
+    <!-- 手动配置静态资源直接转发 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
 
     <!-- 配置直接转发的页面 -->
@@ -33,6 +34,14 @@
             <bean class="cn.yxy.interceptor.UserInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!-- 默认的视图解析 -->
+    <bean id="internalResourceViewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="10"/>
+    </bean>
 
     <!-- tiles的视图解析 -->
     <bean id="viewResolver"
@@ -52,14 +61,6 @@
                 <value>/WEB-INF/views/tiles.xml</value>
             </list>
         </property>
-    </bean>
-
-    <!-- 默认的视图解析 -->
-    <bean id="internalResourceViewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <property name="suffix" value=".jsp"/>
-        <property name="order" value="10"/>
     </bean>
 
 </beans>

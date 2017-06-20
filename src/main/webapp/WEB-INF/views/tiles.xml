@@ -46,12 +46,12 @@
 
     <!-- Base Definition -->
     <definition name="base-definition"
-                template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+                template="/src/else/defaultLayout.jsp">
         <put-attribute name="title" value=""/>
-        <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp"/>
-        <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp"/>
+        <put-attribute name="header" value="/src/else/defaultHeader.jsp"/>
+        <put-attribute name="menu" value="/src/else/defaultMenu.jsp"/>
         <put-attribute name="body" value=""/>
-        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp"/>
+        <put-attribute name="footer" value="/src/else/defaultFooter.jsp"/>
     </definition>
 
 </tiles-definitions>

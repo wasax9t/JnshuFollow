@@ -7,7 +7,7 @@
         $("#sendEmail").click(function () {
             $.ajax({
                 type: "post",
-                url: "/action/sendEmail",
+                url: "${pageContext.request.contextPath}/action/sendEmail",
                 dataType: "json",
                 data: {
                     email: "wasax9t@126.com"
@@ -21,7 +21,7 @@
         $("#aliyunOSS").click(function () {
             $.ajax({
                 type: "post",
-                url: "/action/aliyunOSS",
+                url: "${pageContext.request.contextPath}/action/aliyunOSS",
                 dataType: "json",
                 data: {},
                 success: function (data) {

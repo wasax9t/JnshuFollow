@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="rmi-service:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/rmi_service_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="rmi-service/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="rmi-service" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

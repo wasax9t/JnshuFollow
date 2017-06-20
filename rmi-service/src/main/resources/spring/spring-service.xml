@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop  
+  	http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!-- 扫描service包下所有使用注解的类型 因rmi需要指定bean名先弃用
+    <context:component-scan base-package="cn.yxy.service.impl"/>-->
+
+    <bean id="studentService" class="cn.yxy.service.impl.StudentServiceImpl"/>
+    <bean id="userService" class="cn.yxy.service.impl.UserServiceImpl"/>
+
+    <bean id="studentServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="StudentService"/>
+        <property name="service" ref="studentService"/>
+        <property name="serviceInterface" value="cn.yxy.service.StudentService"/>
+        <property name="registryPort" value="1098"/>
+    </bean>
+    <bean id="userServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="UserService"/>
+        <property name="service" ref="userService"/>
+        <property name="serviceInterface" value="cn.yxy.service.UserService"/>
+        <property name="registryPort" value="1198"/>
+    </bean>
+
+    <!-- 使用springAOP -->
+    <aop:aspectj-autoproxy/>
+    <context:component-scan base-package="cn.yxy.aop"/>
+
+    <!-- XMemcachedClientBuilder在spring3后只能用factory方法来配置 -->
+    <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+        <constructor-arg>
+            <list>
+                <bean class="java.net.InetSocketAddress">
+                    <constructor-arg>
+                        <value>localhost</value>
+                    </constructor-arg>
+                    <constructor-arg>
+                        <value>11211</value>
+                    </constructor-arg>
+                </bean>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <list>
+                <value>1</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!-- Use factory bean to build memcached client -->
+    <bean name="memcachedClient" factory-bean="memcachedClientBuilder"
+          factory-method="build" destroy-method="shutdown"/>
+
+    <!-- 配置redis池，依次为最大实例数，最大空闲实例数，(创建实例时)最大等待时间，(创建实例时)是否验证 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxTotal" value="40"/>
+        <property name="maxIdle" value="20"/>
+        <property name="maxWaitMillis" value="1000"/>
+        <property name="testOnBorrow" value="true"/>
+    </bean>
+    <!-- redis连接配置，依次为主机ip，端口，是否使用池，(usePool=true时)redis的池配置 -->
+    <bean id="jedisFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="localhost"/>
+        <property name="port" value="6379"/>
+        <property name="usePool" value="true"/>
+        <property name="poolConfig" ref="jedisPoolConfig"/>
+    </bean>
+    <!-- redis模板配置 -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisFactory"/>
+        <property name="keySerializer">
+            <bean
+                    class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean
+                    class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+    </bean>
+
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="c3p0DataSource"/>
+    </bean>
+
+    <!-- 配置基于注解的声明式事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

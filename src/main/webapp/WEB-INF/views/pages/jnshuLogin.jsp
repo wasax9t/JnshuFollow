@@ -22,7 +22,7 @@
             InterValObj = window.setInterval(SetRemainTime, 1000);//每1000ms自动执行
             $.ajax({
                 type: "post",
-                url: "/action/verificationCode",
+                url: "${pageContext.request.contextPath}/action/verificationCode",
                 dataType: "json",
                 data: {
                     phoneNumber: phoneNumber
