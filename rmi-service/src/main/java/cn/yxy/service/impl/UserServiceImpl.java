@@ -3,6 +3,7 @@ package cn.yxy.service.impl;
 import cn.yxy.dao.UserMapper;
 import cn.yxy.domain.User;
 import cn.yxy.service.UserService;
+import org.oasisopen.sca.annotation.Remotable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

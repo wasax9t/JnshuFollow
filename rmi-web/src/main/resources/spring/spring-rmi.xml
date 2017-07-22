@@ -8,7 +8,7 @@
         <property name="serviceUrl" value="rmi://localhost:1099/StudentService"/>
         <property name="serviceInterface" value="cn.yxy.service.StudentService"/>
     </bean>
-    <bean id="userService1" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" scope="prototype">
+    <bean id="userService1" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
         <property name="serviceUrl" value="rmi://localhost:1199/UserService"/>
         <property name="serviceInterface" value="cn.yxy.service.UserService"/>
     </bean>
@@ -17,10 +17,10 @@
         <property name="serviceUrl" value="rmi://localhost:1098/StudentService"/>
         <property name="serviceInterface" value="cn.yxy.service.StudentService"/>
     </bean>
-    <bean id="userService2" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" scope="prototype">
+    <!--<bean id="userService2" class="org.springframework.remoting.rmi.RmiProxyFactoryBean" scope="prototype">
         <property name="serviceUrl" value="rmi://localhost:1198/UserService"/>
         <property name="serviceInterface" value="cn.yxy.service.UserService"/>
-    </bean>
+    </bean>-->
 
     <!-- 腾讯云RMI-service -->
 <!--    <bean id="studentServiceQ" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">

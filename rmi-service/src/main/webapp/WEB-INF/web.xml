@@ -8,7 +8,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                classpath:spring/spring.xml
+                classpath:spring/spring-*.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
@@ -17,7 +17,7 @@
         <servlet-name>spring</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!-- 过滤器，仅允许UTF-8编码 -->
+    <!-- 过滤器，仅允许UTF-8编码
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -28,6 +28,15 @@
     </filter>
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> -->
+    <!-- tuscany的过滤器 -->
+    <filter>
+        <filter-name>tuscany.wsdl</filter-name>
+        <filter-class>org.apache.tuscany.sca.host.webapp.TuscanyServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>tuscany.wsdl</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>

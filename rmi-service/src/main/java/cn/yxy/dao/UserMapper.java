@@ -1,9 +1,11 @@
 package cn.yxy.dao;
 
 import cn.yxy.domain.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface UserMapper {
     boolean deleteByPrimaryKey(Long id);
 

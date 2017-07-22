@@ -1,9 +1,11 @@
 package cn.yxy.service;
 
 import cn.yxy.domain.User;
+import org.oasisopen.sca.annotation.Remotable;
 
 import java.util.List;
 
+@Remotable
 public interface UserService {
 
     boolean deleteByPrimaryKey(long id);
